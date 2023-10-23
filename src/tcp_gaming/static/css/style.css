@@ -16,7 +16,6 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed; /* Rend l'image de fond fixe */
-     /* Modifiez la valeur alpha pour l'opacité du fond noir */
 }
 
 .top {
@@ -38,7 +37,7 @@ body {
 
 .menu-icon div {
     height: 3px;
-    background-color: white;
+    background-color: rgb(8, 8, 8);
     margin: 2px 0;
 }
 
@@ -64,7 +63,7 @@ nav ul {
 }
 
 nav ul li a {
-    color: white;
+    color: rgb(5, 5, 5);
     text-decoration: none;
 }
 
@@ -76,7 +75,7 @@ nav ul li a {
 
 .auth button {
     background-color: transparent;
-    color: white;
+    color: rgb(7, 7, 7);
     border: 1px solid white;
     padding: 5px 15px;
     cursor: pointer;
@@ -92,5 +91,5 @@ nav ul li a {
 .date-section {
     text-align: center; /* Centre le texte horizontalement */
     margin-top: 20px; /* Ajoute un espacement en haut pour centrer verticalement */
-    color: white; /* Ajoutez une couleur blanche au texte pour le contraste */
+    color: rgb(5, 5, 5); /* Ajoutez une couleur blanche au texte pour le contraste */
 }
