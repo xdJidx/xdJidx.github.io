@@ -1,11 +1,44 @@
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="index.html">
+    <link rel="stylesheet" href="{% static 'css/style_autres.css' %}">
+    <style></style>
 </head>
 <body>
-    
+    <div class="top">
+        <div class="menu-icon">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="hour">
+            <h3> {{ date|date:"H\hi" }} </h3>
+        </div>
+        <div class="title">
+            <h1>TCP GAMING</h1>
+        </div>
+
+        <div class="auth">
+            <button>Sign In</button>
+            <button>Sign Up</button>
+        </div>
+    </div>
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="{% url 'index' %}">Accueil</a></li>
+            <li><a href="{% url 'tournoi' %}">Tournoi</a></li>
+            <li><a href="{% url 'concours' %}">Concours</a></li>
+            <li><a href="{% url 'photo' %}">Sérénithéière</a></li>
+            <li><a href="{% url 'autres' %}">Autres activités</a></li>
+        </ul>
+    </nav>
+
+        <div class="date-section">
+            <h2>Nous sommes le {{ date|date:"d F Y " }}</h2>
+        </div>
 </body>
 </html>
