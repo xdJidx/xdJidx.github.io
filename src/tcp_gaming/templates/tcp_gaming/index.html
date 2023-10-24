@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>TCP Gaming</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="{% static 'css/images/favicon.ico' %}" type="image/x-icon">
 </head>
 
 <body>
@@ -29,11 +29,11 @@
     </div>
     <nav class="navbar">
         <ul class="nav-links">
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="tournoi.html">Tournoi</a></li>
-            <li><a href="concours.html">Concours</a></li>
-            <li><a href="photo.html">Sérénithéière</a></li>
-            <li><a href="autres.html">Autres activités</a></li>
+            <li><a href="{% url 'index' %}">Accueil</a></li>
+            <li><a href="{% url 'tournoi' %}">Tournoi</a></li>
+            <li><a href="{% url 'concours' %}">Concours</a></li>
+            <li><a href="{% url 'photo' %}">Sérénithéière</a></li>
+            <li><a href="{% url 'autres' %}">Autres activités</a></li>
         </ul>
     </nav>
 

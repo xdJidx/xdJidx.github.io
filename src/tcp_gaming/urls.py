@@ -17,14 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from .views import index
+from .views import index, concours_view, photo_view, tournoi_view, autres_view
 
 urlpatterns = [
     path('', index, name='index'),
     path('blog/', include("blog.urls")),
     path('admin/', admin.site.urls),
-    path('concours/', include("concours.urls")),
-    path('photo/', include("photo.urls")),
-    path('tournoi/', include("tournoi.urls")),
-    path('autres/', include("autres.urls")),
+    path('concours/', concours_view, name='concours'),
+    path('photo/', photo_view, name='photo'),
+    path('tournoi/', tournoi_view, name='tournoi'),
+    path('autres/', autres_view, name='autres'),
 ]
