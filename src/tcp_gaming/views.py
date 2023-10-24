@@ -10,13 +10,13 @@ def index(request):
     return render(request, "tcp_gaming/index.html", context={"date": date})
 
 def concours_view(request):
-    return render(request, 'concours.html')
+    return render(request, "tcp_gaming/concours.html")
 
 def photo_view(request):
-    return render(request, 'photo.html')
+    return render(request, "tcp_gaming/photo.html")
 
 def tournoi_view(request):
-    return render(request, 'tournoi.html')
+    return render(request, "tcp_gaming/tournoi.html")
 
 def autres_view(request):
-    return render(request, 'autres.html')
+    return render(request, "tcp_gaming/autres.html")
