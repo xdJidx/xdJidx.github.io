@@ -1,11 +1,21 @@
-from django.shortcuts import render, redirect
+from django.http import HttpResponse
+from django.shortcuts import render
+from django.shortcuts import get_object_or_404, redirect
+from django.http import JsonResponse
 from .models import Room, Message
-from django.http import HttpResponse, JsonResponse
-from django.shortcuts import get_object_or_404
 
 
 def home(request):
-    return render(request, 'tcp_gaming/home.html')
+    # Votre code pour générer la page
+
+    # Créez une réponse de rendu à partir de votre modèle HTML
+    response = render(request, 'tcp_gaming/home.html')
+
+    # Ajoutez l'en-tête Content-Security-Policy pour autoriser l'inclusion dans un iframe
+    response['Content-Security-Policy'] = "frame-ancestors 'self'"
+
+    # Renvoyez la réponse
+    return response
 
 def room(request, room):
     username = request.GET.get('username')
@@ -51,6 +61,7 @@ def send(request):
         return HttpResponse("Requête non autorisée", status=405)
 
 def getMessages(request,room):
-    room_details = Room.objects.get(name = room)
+    room_details = Room.objects.get(name=room)
     messages = Message.objects.filter(room=room_details).order_by('date')
     return JsonResponse({"messages": list(messages.values())})
+
