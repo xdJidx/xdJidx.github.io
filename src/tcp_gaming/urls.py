@@ -27,4 +27,5 @@ urlpatterns = [
     path('photo/', photo_view, name='photo'),
     path('tournoi/', tournoi_view, name='tournoi'),
     path('autres/', autres_view, name='autres'),
+    path('login/', include("login.urls")),
 ]
