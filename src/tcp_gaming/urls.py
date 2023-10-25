@@ -16,8 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
 from .views import index, concours_view, photo_view, tournoi_view, autres_view
+from chat import views
 
 urlpatterns = [
     path('', index, name='index'),
@@ -27,4 +27,10 @@ urlpatterns = [
     path('photo/', photo_view, name='photo'),
     path('tournoi/', tournoi_view, name='tournoi'),
     path('autres/', autres_view, name='autres'),
+    path('', views.home, name='home'),
+    path('home/', views.home, name='home_named'),
+    path('<str:room>/', views.room, name='room'),
+    path('home/checkview', views.checkview, name='checkview'),
+    path('send', views.send , name ="send"),
+    path('getMessages/<str:room>/', views.getMessages , name ="getMessages")
 ]
