@@ -15,6 +15,11 @@ h2 {
   text-decoration: underline; /* Souligné */
 }
 
+h3 {
+  font-size: 25px; /* Taille de police */
+  font-weight: bold; /* Gras */
+}
+
 h4 {
   font-size: 25px; /* Taille de police */
   font-weight: bold; /* Gras */
@@ -24,7 +29,8 @@ button {
   font-size: 18px; /* Taille du texte à l'intérieur des boutons */
   padding: 10px 20px; /* Espace intérieur (haut et bas, gauche et droite) des boutons */
   background-color: hsl(60, 20%, 99%); /* Couleur de fond des boutons (par exemple, bleu) */
-  color: #070707; /* Couleur du texte à l'intérieur des boutons (par exemple, blanc) */
+  color: #0e0750; /* Couleur du texte à l'intérieur des boutons (par exemple, blanc) */
+  border-radius: 50%; /* Coins arrondis */
 }
 
 /* Styliser les boutons lorsqu'ils ont le focus */
@@ -53,4 +59,15 @@ input {
   padding: 5px; /* Espace intérieur (haut et bas, gauche et droite) des éléments <input> */
   border: 1px solid #333; /* Bordure des éléments <input> */
   border-radius: 5px; /* Coins arrondis */
+}
+
+/* Styliser les messages avec la classe "custom-message" */
+.custom-message {
+  font-size: 25px; /* Taille de la police */
+  background-color: #ff5733; /* Couleur de fond du message (par exemple, rouge) */
+  color: #fff; /* Couleur du texte du message (par exemple, blanc) */
+  font-weight: bold; /* Gras */
+  padding: 10px; /* Espace intérieur (haut et bas, gauche et droite) du message */
+  margin: 10px 0; /* Marge autour du message */
+  display: inline-block; /* Affichage en ligne pour s'adapter au contenu du message */
 }
