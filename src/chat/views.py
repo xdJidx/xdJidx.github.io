@@ -30,7 +30,7 @@ def room(request, room):
     })
 
     # Définissez l'en-tête X-Frame-Options pour autoriser l'affichage dans une iframe depuis n'importe quel site
-    response['X-Frame-Options'] = 'ALLOW-FROM *'
+    response['Content-Security-Policy'] = "frame-ancestors 'self'" 
 
     return response
 
