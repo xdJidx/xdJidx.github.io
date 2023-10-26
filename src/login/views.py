@@ -10,11 +10,13 @@ from django.contrib import messages
 from django.core.mail import send_mail, EmailMessage
 from .token import generatorToken
 
+
 # Create your views here.
 def index(request):
     return render(request, "login/index.html")
 
 
+# S'inscrire
 def register(request):
     if request.method == "POST":
         username = request.POST["username"]
@@ -35,7 +37,7 @@ def register(request):
             my_user.username = username
             my_user.is_active = False
             my_user.save()
-            messages.success(request, "Votre compte a été créé avec succès")
+            messages.success(request, "Votre compte a été créé avec succès !\n\nVeuillez vérifier votre boîte mail pour activer votre compte.")
             login(request, my_user)
 
             # Envoi d'un mail de bienvenue
@@ -69,13 +71,14 @@ def register(request):
     return render(request, "login/register.html")
 
 
+# Se connecter à son compte
 def connect(request):
     if request.method == "POST":
         username = request.POST["username"]
         password = request.POST["password"]
         user = authenticate(request, username=username, password=password)
 
-        if user is not None:
+        if user is not None and User.objects.filter(username=user.username).exists():
             if user.is_active:
                 login(request, user)
                 return render(request, "login/index.html", {'username': user.username})
@@ -89,12 +92,14 @@ def connect(request):
     return render(request, "login/connect.html")
 
 
+# Se déconnecter de son compte
 def logout_view(request):
     logout(request)
     messages.success(request, "Vous avez été déconnecté avec succès")
     return redirect("login-index")
 
 
+# Activer son compte depuis son mail
 def activate(request, uidb64, token):
     try:
         uid = urlsafe_base64_decode(uidb64).decode('utf-8')
