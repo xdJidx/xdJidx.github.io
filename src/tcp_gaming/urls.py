@@ -19,6 +19,7 @@ from django.urls import path, include
 from .views import index, concours_view, photo_view, tournoi_view, autres_view
 from chat import views
 
+
 urlpatterns = [
     path('', index, name='index'),
     path('blog/', include("blog.urls")),
