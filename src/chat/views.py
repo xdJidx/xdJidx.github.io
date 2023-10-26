@@ -21,11 +21,18 @@ def room(request, room):
     username = request.GET.get('username')
     # Utilisation de get_object_or_404 pour gérer les cas où la salle n'existe pas.
     room_details = get_object_or_404(Room, name=room)
-    return render(request, 'tcp_gaming/room.html', {
+    
+    # Créez une réponse HTTP avec l'en-tête X-Frame-Options
+    response = render(request, 'tcp_gaming/room.html', {
         'username': username,
         'room': room,
         'room_details': room_details
     })
+
+    # Définissez l'en-tête X-Frame-Options pour autoriser l'affichage dans une iframe depuis n'importe quel site
+    response['X-Frame-Options'] = 'ALLOW-FROM *'
+
+    return response
 
 def checkview(request):
     if request.method == 'POST':

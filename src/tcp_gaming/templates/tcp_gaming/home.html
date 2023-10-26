@@ -5,71 +5,66 @@
 </head>
 <body>
     <style>
-            @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;1,200;1,300;1,400&display=swap');
-            *{
-                margin: 0;
-                padding: 0;
-                font-family: 'Montserrat', sans-serif;
-            }
-            body {
-            margin: 0 ;
-            height: 100vh;
-            max-height: 100vh;
-            padding:0;
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;1,200;1,300;1,400&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+        body {
+        border: none;
+        margin: 0 ;
+        height: 40vh;
+        max-height: 40vh;
+        padding:0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-left: -15%;
+        }
+
+        .container {
+        border: 1px solid #dedede;  /* divisé par 2 */
+        background-color: #f1f1f1;
+        border-radius: 2.5px;  /* divisé par 2 */
+        padding: 10px;  /* divisé par 2 */
+        margin: 5px 0;  /* divisé par 2 */
+        width: 225px;  /* divisé par 2 */
+        }
+
+        #post-form {
+            width: 100%;
             display: flex;
-            justify-content: center;
-            align-items: center;
             flex-direction: column;
-           
-            }
-        
-            .container {
-            border: 2px solid #dedede;
-            background-color: #f1f1f1;
-            border-radius: 5px;
-            padding: 20px;
-            margin: 10px 0;
-            width: 450px;
-            }
-        
-            #post-form {
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-            }
-        
-            input{
-            
-                padding: 10PX;
-                margin: 8px 0;
-                padding-left: 20px;
-            
-            
-            
-                padding: 20PX 0;
-                padding-left: 5PX;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-            
-                }
-        
-                input[type=submit] {
-            
-                background-color: #4CAF50;
-                color: white;
-                padding: 14px 20px;
-                margin: 8px 0;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer; 
-                }
-        
-                input[type=submit]:hover {
-                background-color: #45a049;
-                }
+        }
+
+        input{
+        padding: 10px 0;  /* divisé par 2 */
+        margin: 4px 0;  /* divisé par 2 */
+        padding-left: 10px;  /* divisé par 2 */
+        border: 0.5px solid #ccc;  /* divisé par 2 */
+        border-radius: 2px;  /* divisé par 2 */
+        }
+
+        input[type=submit] {
+        background-color: black;
+        color: white;
+        padding: 7px 10px;  /* divisé par 2 */
+        margin: 4px 0;  /* divisé par 2 */
+        border: none;
+        border-radius: 2px;  /* divisé par 2 */
+        cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+        background-color: black;
+        }
+
     </style>
+
     <div>
-        <h2>Django Chat</h2>
+        <h2>Tchat</h2>
     </div>
     <div class="container">
         <form id = "post-form" method="POST" action="checkview">
@@ -78,6 +73,18 @@
             <input type="text" name="username" placeholder="Username"/>
             <input type="submit" value="Enter Room">
         </form>
+
+        <script>
+                document.getElementById('roomForm').addEventListener('submit', function(event) {
+                var roomName = document.getElementById('room_name').value.trim();
+                var username = document.getElementById('username').value.trim();
+    
+                if (roomName === '' || username === '') {
+                    event.preventDefault();
+                    alert("Veuillez remplir les champs 'Room' et 'Username' avant de continuer.");
+                }
+            });
+        </script>
     </div>
 </body>
 </html>
