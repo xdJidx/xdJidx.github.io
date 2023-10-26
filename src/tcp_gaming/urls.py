@@ -24,6 +24,7 @@ urlpatterns = [
     path('', index, name='index'),
     path('blog/', include("blog.urls")),
     path('admin/', admin.site.urls),
+    path('login/', include("login.urls")),
     path('concours/', concours_view, name='concours'),
     path('photo/', photo_view, name='photo'),
     path('tournoi/', tournoi_view, name='tournoi'),
@@ -34,5 +35,4 @@ urlpatterns = [
     path('home/checkview', views.checkview, name='checkview'),
     path('send', views.send , name ="send"),
     path('getMessages/<str:room>/', views.getMessages , name ="getMessages"),
-    path('login/', include("login.urls")),
 ]
