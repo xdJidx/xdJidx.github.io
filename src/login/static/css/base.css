@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;1,400&display=swap');
+
+body {
+    background-image: url('imageDeFondLogin.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    font-family: 'Lato', sans-serif;
+  }
+
+h2 {
+  font-size: 30px; /* Taille de police */
+  font-weight: bold; /* Gras */
+  text-decoration: underline; /* Souligné */
+}
+
+h4 {
+  font-size: 25px; /* Taille de police */
+  font-weight: bold; /* Gras */
+}
+
+button {
+  font-size: 18px; /* Taille du texte à l'intérieur des boutons */
+  padding: 10px 20px; /* Espace intérieur (haut et bas, gauche et droite) des boutons */
+  background-color: hsl(60, 20%, 99%); /* Couleur de fond des boutons (par exemple, bleu) */
+  color: #070707; /* Couleur du texte à l'intérieur des boutons (par exemple, blanc) */
+}
+
+/* Styliser les boutons lorsqu'ils ont le focus */
+button:focus {
+  outline: none; /* Supprimer le contour par défaut du focus */
+  box-shadow: 0 0 5px hsl(34, 100%, 50%); /* Ajouter une ombre lorsque le bouton est en focus (par exemple, une ombre bleue) */
+}
+
+/* Styliser les boutons lorsque visités (après le premier clic) */
+button:visited {
+  color: #0c0c0c; /* Couleur du texte après que le bouton a été cliqué une fois (par exemple, rouge) */
+}
+
+/* Styliser les labels */
+label {
+  display: inline-block; /* Définir les labels comme des éléments en ligne avec une largeur fixe */
+  width: 100px; /* Largeur fixe pour les labels */
+  font-size: 16px; /* Taille de la police des labels */
+  color: #333; /* Couleur du texte des labels */
+  font-weight: bold; /* Gras */
+}
+
+/* Styliser les éléments <input> */
+input {
+  font-size: 16px; /* Taille de la police des éléments <input> */
+  padding: 5px; /* Espace intérieur (haut et bas, gauche et droite) des éléments <input> */
+  border: 1px solid #333; /* Bordure des éléments <input> */
+  border-radius: 5px; /* Coins arrondis */
+}
