@@ -33,7 +33,7 @@ button {
   border-radius: 50%; /* Coins arrondis */
 }
 
-/* Styliser les boutons lorsqu'ils ont le focus */
+/* Styliser les boutons */
 button:focus {
   outline: none; /* Supprimer le contour par défaut du focus */
   box-shadow: 0 0 5px hsl(34, 100%, 50%); /* Ajouter une ombre lorsque le bouton est en focus (par exemple, une ombre bleue) */
