@@ -11,7 +11,20 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from . info import *
 import os
+
+import django
+from django.utils.encoding import force_str
+django.utils.encoding.force_str = force_str
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = EMAIL_USE_TLS
+EMAIL_HOST = EMAIL_HOST
+EMAIL_HOST_USER = EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD
+EMAIL_PORT = EMAIL_PORT
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,6 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'chat',
+    'login',
 ]
 
 MIDDLEWARE = [
