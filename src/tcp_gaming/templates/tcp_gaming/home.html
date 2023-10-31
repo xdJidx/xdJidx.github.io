@@ -67,7 +67,7 @@
         <h2>Tchat</h2>
     </div>
     <div class="container">
-        <form id = "post-form" method="POST" action="checkview">
+        <form id = "post-form" method="POST" action="http://127.0.0.1:8000/home/checkview/">
             {% csrf_token %}
             <input type="text" name="room_name" placeholder="Room" />
             <input type="text" name="username" placeholder="Username"/>
