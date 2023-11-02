@@ -21,7 +21,6 @@ from tournois.views import bracket_view, bracket_single
 from chat import views
 
 
-
 urlpatterns = [
     path('', index, name='index'),
     path('api_concours/', include("api_concours.urls")),
@@ -41,5 +40,4 @@ urlpatterns = [
     path('home/checkview/', views.checkview, name='checkview'),
     path('send', views.send , name ="send"),
     path('getMessages/<str:room>/', views.getMessages , name ="getMessages"),
-    
 ]

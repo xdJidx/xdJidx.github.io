@@ -42,6 +42,11 @@ body {
     margin: 2px 0;
 }
 
+.hour {
+    position: absolute;
+    left: 15%;
+}
+
 .title {
     font-size: 25px;
     font-weight: bold;
@@ -50,13 +55,19 @@ body {
     
 }
 
+.auth {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    padding-right: 5%;
+}
+
 .navbar {
     margin: 0 auto;
     width: auto;      /* Changement ici pour permettre l'ajustement dynamique */
     display: flex;    /* Ajout pour activer le mode flexbox */
     justify-content: center; /* Ajout pour centrer les éléments horizontalement */
 }
-
 
 .navbar ul {
     list-style-type: none;
@@ -72,36 +83,60 @@ body {
     justify-content: center;
 }
 
-.auth {
-    display: flex;
-    gap: 10px;
-    justify-content: flex-start;
-    padding-right: 5%;
-}
-
-.auth button {
-    background-color: transparent;
-    color: rgb(7, 7, 7);
-    border: 1px solid white;
-    padding: 5px 15px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    right: 20%;
-}
-
-.auth button:hover {
-    background-color: white;
-    color: #1a1a1a;
-}
-
-
 .date-section {
     text-align: center; /* Centre le texte horizontalement */
     margin-top: 20px; /* Ajoute un espacement en haut pour centrer verticalement */
     color: rgb(5, 5, 5); /* Ajoutez une couleur blanche au texte pour le contraste */
 }
 
-.hour {
-    position: absolute;
-    left: 15%;
+.iframe-container {
+    width: 100%;
+}
+
+.row {
+    display: flex;
+}
+
+.side-left, .center, .side-right {
+    flex: 1; /* Tous les éléments enfants ont une flexibilité égale */
+}
+
+.center {
+    flex: 2; /* Le centre prend 2 fois la largeur des côtés (50%) */
+}
+
+.side-left {
+    background-color: lightblue;
+    border: 1px solid blue;
+}
+
+.center {
+    background-color: lightgreen;
+    border: 1px solid green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-items: flex-start;
+}
+
+.center > * {
+    width: 100%; /* Les éléments à l'intérieur de .center prennent toute la largeur disponible */
+}
+
+.side-right {
+    flex: 1;
+    background-color: lightcoral;
+    border: 1px solid red;
+    display: flex;
+    justify-content: center; /* Aligner horizontalement le contenu en centre */
+    align-items: flex-start; /* Aligner verticalement le contenu en haut */
+}
+
+.side-right > * {
+    width: 100%; /* Les éléments à l'intérieur de .side-right prennent 80% de la largeur disponible */
+}
+
+.spacer {
+    width: 10px; /* Largeur de la séparation */
+    background-color: transparent; /* Couleur de fond de la séparation (transparente) */
 }
