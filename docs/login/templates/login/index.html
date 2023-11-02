@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for message in messages %}
+
+<div class="custom-message">{{ message }}</div>
+<br>
+
+{% endfor %}
+
+{% if user.is_authenticated %}
+<h3>Bienvenue {{ user.username }} !</h3>
+<button type="submit"><a href="{% url 'logout' %}">Se deconnecter</a></button>
+{% else %}
+<button type="submit"><a href="{% url 'register' %}">S'enregistrer</a></button>
+<button type="submit"><a href="{% url 'connect' %}">Se connecter</a></button>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,77 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Réinitialisation du style des navigateurs */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2c3e50, rgba(0, 0, 0, 0.9));
+            color: #333;
+            line-height: 1.6;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .title {
+            text-align: center;
+            color: #FFF;
+            padding: 20px;
+            background: -webkit-linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .tournois {
+            list-style-type: none;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .tournois li {
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #FFF;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .tournois li:last-child {
+            border-bottom: none;
+        }
+
+        .tournois li:hover {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <h1 class="title">Single tournament</h1>
+    </div>
+    <ul class="tournois">
+        {% for tournoi in tournois %}
+            <li>{{ tournoi.nom }} - {{ tournoi.date }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
