@@ -10,7 +10,10 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from django.http import JsonResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.models import User
+
+
 
 
 @xframe_options_exempt
@@ -47,6 +50,25 @@ def bracket_single(request):
     response['X-Frame-Options'] = 'ALLOWALL'
 
     return response
+
+
+@xframe_options_exempt
+def model_bracket(request):
+    # Utilisez la fonction de chargement de modèle Django pour charger votre modèle de page HTML
+    template = loader.get_template('tcp_gaming/bracket/model-bracket.html')
+    context = {}  # Vous pouvez ajouter des données de contexte si nécessaire
+
+    # Rendu du modèle avec les données de contexte
+    rendered_template = template.render(context, request)
+
+    # Créez une réponse HTTP à partir du modèle rendu
+    response = HttpResponse(rendered_template, content_type='text/html')
+    
+    # Définissez les en-têtes pour autoriser l'inclusion depuis n'importe quel domaine
+    response['X-Frame-Options'] = 'ALLOWALL'
+
+    return response
+
 
 class TournoiListCreate(generics.ListCreateAPIView):
     queryset = Tournoi.objects.all()
@@ -90,4 +112,28 @@ def count_double_tournois(request):
 def list_tournament(request):
     tournaments = Tournoi.objects.filter(nom__startswith='single')
     return render(request, 'tcp_gaming/bracket/menu-single.html', {'tournois': tournaments})
+
+
+def get_current_user(request):
+    if request.user.is_authenticated:
+        # L'utilisateur est connecté, vous pouvez accéder à ses informations
+        username = request.user.username
+        
+        # Vous pouvez également récupérer d'autres informations de l'utilisateur si nécessaire
+
+        return JsonResponse({'username': username})
+    else:
+        # L'utilisateur n'est pas connecté
+        return JsonResponse({'error': 'Utilisateur non authentifié'}, status=401)
+    
+def display_tournament_info(request, tournament_id):
+    # Récupérez le tournoi spécifique en utilisant l'ID fourni
+    tournament = get_object_or_404(Tournoi, id=tournament_id)
+
+    # Passez le tournoi au template et affichez-le
+    return render(request, 'tcp_gaming/bracket/menu-single.html', {'tournament': tournament})
+
+
+
+    
 

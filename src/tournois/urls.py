@@ -10,4 +10,7 @@ urlpatterns = [
     path('count-single/', views.count_single_tournois, name='count-single-tournois'),
     path('count-double/', views.count_double_tournois, name='count-double-tournois'),
     path('list-tournois/', views.list_tournament, name='list-tournois'),
+    path('get-user/', views.get_current_user, name='get-user'),
+    path('tournament/<int:tournament_id>/', views.display_tournament_info, name='tournament-info'),
+
 ]

@@ -1,8 +1,9 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Single tournament</title>
     <style>
         /* Réinitialisation du style des navigateurs */
         * {
@@ -11,17 +12,12 @@
             box-sizing: border-box;
             transition: all 0.3s ease;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #2c3e50, rgba(0, 0, 0, 0.9));
             color: #333;
             line-height: 1.6;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
         }
 
         .title {
@@ -29,49 +25,87 @@
             color: #FFF;
             padding: 20px;
             background: -webkit-linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
+            background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             font-size: 2rem;
             margin-bottom: 20px;
         }
-        
+
         .tournois {
             list-style-type: none;
-            max-width: 600px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 5px;
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
+            max-width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            align-items: stretch;
         }
 
         .tournois li {
             padding: 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
             color: #FFF;
             background: rgba(0, 0, 0, 0.1);
-        }
-
-        .tournois li:last-child {
-            border-bottom: none;
+            flex: 1;
+            min-width: 200px;
+            width: 25%;
+            box-sizing: border-box;
+            min-width: 200px;
+            flex: none;
         }
 
         .tournois li:hover {
             background: rgba(0, 0, 0, 0.2);
         }
 
+        .join-btn {
+            padding: 0px 10px;
+            background-color: #FF8E53;
+            color: #FFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            outline: none;
+            transition: background-color 0.3s ease;
+            margin-left: 10px;
+        }
+
+        .join-btn:hover {
+            background-color: #FE6B8B;
+        }
     </style>
 </head>
 <body>
-    <div>
-        <h1 class="title">Single tournament</h1>
-    </div>
+    <h1 class="title">Single tournament</h1>
     <ul class="tournois">
         {% for tournoi in tournois %}
-            <li>{{ tournoi.nom }} - {{ tournoi.date }}</li>
+            <li>
+                <span>{{ tournoi.nom }} - {{ tournoi.date }}</span>
+                <!-- Bouton pour accéder à la page du tournoi -->
+                <button class="join-btn" data-id="{{ tournoi.id }}" data-name="{{ tournoi.nom }}">Accéder au Model Bracket</button>
+            </li>
         {% endfor %}
     </ul>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const buttons = document.querySelectorAll('.join-btn');
+    buttons.forEach(button => {
+        button.addEventListener('click', function() {
+            const tournamentId = this.getAttribute('data-id');
+            const url = `http://127.0.0.1:8000/model-bracket/?tournament_id=${tournamentId}`;
+            window.location.assign(url);
+        });
+    });
+});
+
+    </script>
+        
+
 </body>
 </html>

@@ -1,4 +1,5 @@
 from django.db import models
+from django.views.generic import DetailView
 
 class Tournoi(models.Model):
     nom = models.CharField(max_length=100)
@@ -8,8 +9,7 @@ class Tournoi(models.Model):
 
 class Participant(models.Model):
     nom = models.CharField(max_length=100)
-    age = models.PositiveIntegerField()
-    equipe = models.CharField(max_length=100)
     tournoi = models.ForeignKey(Tournoi, on_delete=models.CASCADE)
     # Ajoutez d'autres champs si nécessaire
+
 

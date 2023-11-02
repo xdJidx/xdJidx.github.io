@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from .views import index, concours_view, photo_view, tournoi_view, autres_view
-from tournois.views import bracket_view, bracket_single
+from tournois.views import bracket_view, bracket_single, model_bracket
 from chat import views
 
 
@@ -31,6 +31,7 @@ urlpatterns = [
     path('api/', include('tournois.urls')),
     path('bracket/', bracket_view, name='bracket'),
     path('bracket-single/', bracket_single, name='bracket-single'),
+    path('model-bracket/', model_bracket, name='model-bracket'),
     path('concours/', concours_view, name='concours'),
     path('photo/', photo_view, name='photo'),
     path('tournoi/', tournoi_view, name='tournoi'),
