@@ -3,44 +3,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>TCP Gaming</title>
-    <link rel="stylesheet" href="{% static 'css/index.css' %}">
-    <link rel="icon" href="{% static 'css/images/favicon.ico' %}" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <title>Login</title>
 </head>
-
 <body>
-    <div class="top">
-        <div class="menu-icon">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <div class="hour">
-            <h3> {{ date|date:"H\hi" }} </h3>
-        </div>
-        <div class="title">
-            <h1>TCP GAMING</h1>
-        </div>
+    <center>
+        <h2>Systeme d'authentification tcp_gaming</h2>
 
-        <div class="auth">
-            <a href="http://127.0.0.1:8000/login/">
-                <button>Se connecter</button>
-            </a>
-        </div>
-    </div>
-    <nav class="navbar">
-        <ul class="nav-links">
-            <li><a href="{% url 'index' %}">Accueil</a></li>
-            <li><a href="{% url 'tournoi' %}">Tournoi</a></li>
-            <li><a href="{% url 'concours' %}">Concours</a></li>
-            <li><a href="{% url 'photo' %}">Sérénithéière</a></li>
-            <li><a href="{% url 'autres' %}">Autres activités</a></li>
-        </ul>
-    </nav>
+        {% block content %}
 
-    {% block content %}
-
-    {% endblock %}
-
+        {% endblock %}
+    </center>
 </body>
 </html>
