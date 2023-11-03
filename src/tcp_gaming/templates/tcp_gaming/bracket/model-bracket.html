@@ -1,87 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tournament Bracket</title>
-    <style>
-        .bracket {
-            display: flex;
-            flex-direction: row;
-            gap: 20px;
-        }
-
-        .round {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-left: 40px;
-            margin-top: 1.25%;
-        }
-
-        .round2 {
-            display: flex;
-            flex-direction: column;
-            gap: 100px;
-            margin-left: 10%;
-            margin-top: 4.5%;
-        }
-
-        .round3 {
-            display: flex;
-            flex-direction: column;
-            gap: 50%;
-            margin-left: 100px;
-            margin-top: 12.5%;
-        }
-        .final{
-            display: flex;
-            flex-direction: column;
-            gap: 50%;
-            margin-left: 100px;
-            margin-top: 25%;
-        }
-
-        .match {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            border: 1px solid black;
-            padding: 5px;
-            width: 150px;
-        }
-
-        .player {
-            padding: 5px;
-            height: 18px;  /* Augmentation de la hauteur */
-            border: 1px solid black;
-            background-color: #eee;
-        }
-
-        .score {
-            display: none; /* Cache les scores */
-        }
-        body{
-           background-color: gray; 
-        }
-        .titre{
-            text-align: right;
-            color: black;
-            font-size: 30px;
-            margin-right: 10%;
-            margin-top: 1%;
-
-        }
-
-        .join-btn{
-            position: absolute;
-            top: 10%;
-            width: 10%;
-            height: 10%;
-            left: 80%;
-
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'css/model-bracket.css' %}">
 </head>
 
 <body>
@@ -125,88 +49,7 @@
        <!-- Add this button to your HTML template -->
 <button id="create-participant-btn">Create Participant</button>
 
-<script>
-    // Fonction pour obtenir la valeur d'un cookie par son nom
-    function getCookie(name) {
-        let cookieValue = null;
-        if (document.cookie && document.cookie !== '') {
-            const cookies = document.cookie.split(';');
-            for (let i = 0; i < cookies.length; i++) {
-                const cookie = cookies[i].trim();
-                // Est-ce que ce cookie commence par le nom recherché ?
-                if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                    break;
-                }
-            }
-        }
-        return cookieValue;
-    }
-
-    // Récupération de l'ID du tournoi à partir de l'URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const tournamentId = urlParams.get('tournament_id');
-    console.log('ID du tournoi récupéré de l\'URL:', tournamentId);
-
-    // Fonction pour vérifier si le participant existe déjà
-    function participantExists(username, tournamentId) {
-        return fetch(`http://127.0.0.1:8000/api/participants/?nom=${username}&tournoi=${tournamentId}`)
-            .then(response => response.json())
-            .then(data => data.length > 0); // Supposons que l'API retourne un tableau de participants
-    }
-
-    // Fonction pour créer un participant
-    function createParticipant() {
-        const csrftoken = getCookie('csrftoken');
-        fetch('/api/get-user/')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Impossible de récupérer les données de l’utilisateur');
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log('Données utilisateur récupérées:', data);
-                // Vérifier d'abord si le participant existe
-                return participantExists(data.username, tournamentId).then(exists => {
-                    if (exists) {
-                        throw new Error('Le participant existe déjà pour cet utilisateur et ce tournoi');
-                    }
-                    // Si le participant n'existe pas, procéder à la création
-                    return fetch('http://127.0.0.1:8000/api/participants/', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRFToken': csrftoken,
-                        },
-                        body: JSON.stringify({
-                            nom: data.username,
-                            tournoi: tournamentId,
-                        })
-                    });
-                });
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Impossible de créer le participant');
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log('Participant créé :', data);
-            })
-            .catch(error => {
-                console.error('Erreur :', error);
-            });
-    }
-
-    // Ajout de l'écouteur d'événements au bouton
-    document.getElementById('create-participant-btn').addEventListener('click', createParticipant);
-</script>
-
-
-
-
+<script src="{% static 'js/model-bracket.js' %}"></script>
 
         <!-- Round 2 -->
         <div class="round2">

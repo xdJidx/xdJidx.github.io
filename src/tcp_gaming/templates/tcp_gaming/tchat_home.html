@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/tchat_home.css' %}">
+</head>
+<body>
+    <div>
+        <h2>Tchat</h2>
+    </div>
+    <div class="container">
+        <form id = "post-form" method="POST" action="http://127.0.0.1:8000/home/checkview/">
+            {% csrf_token %}
+            <input type="text" name="room_name" placeholder="Room" />
+            <input type="text" name="username" placeholder="Username"/>
+            <input type="submit" value="Enter Room">
+        </form>
+
+       <script src="{% static 'js/tchat_home.js' %}"></script>
+    </div>
+</body>
+</html>

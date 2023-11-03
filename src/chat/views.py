@@ -9,7 +9,7 @@ def home(request):
     # Votre code pour générer la page
 
     # Créez une réponse de rendu à partir de votre modèle HTML
-    response = render(request, 'tcp_gaming/home.html')
+    response = render(request, 'tcp_gaming/tchat_home.html')
 
     # Ajoutez l'en-tête Content-Security-Policy pour autoriser l'inclusion dans un iframe
     response['Content-Security-Policy'] = "frame-ancestors 'self'"

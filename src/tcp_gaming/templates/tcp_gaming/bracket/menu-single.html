@@ -1,84 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Single tournament</title>
-    <style>
-        /* Réinitialisation du style des navigateurs */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            transition: all 0.3s ease;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #2c3e50, rgba(0, 0, 0, 0.9));
-            color: #333;
-            line-height: 1.6;
-        }
-
-        .title {
-            text-align: center;
-            color: #FFF;
-            padding: 20px;
-            background: -webkit-linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
-            background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-
-        .tournois {
-            list-style-type: none;
-            max-width: 100%;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-            align-items: stretch;
-        }
-
-        .tournois li {
-            padding: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #FFF;
-            background: rgba(0, 0, 0, 0.1);
-            flex: 1;
-            min-width: 200px;
-            width: 25%;
-            box-sizing: border-box;
-            min-width: 200px;
-            flex: none;
-        }
-
-        .tournois li:hover {
-            background: rgba(0, 0, 0, 0.2);
-        }
-
-        .join-btn {
-            padding: 0px 10px;
-            background-color: #FF8E53;
-            color: #FFF;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            outline: none;
-            transition: background-color 0.3s ease;
-            margin-left: 10px;
-        }
-
-        .join-btn:hover {
-            background-color: #FE6B8B;
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'css/menu-single.css' %}">
 </head>
 <body>
     <h1 class="title">Single tournament</h1>
@@ -92,20 +19,7 @@
         {% endfor %}
     </ul>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-    const buttons = document.querySelectorAll('.join-btn');
-    buttons.forEach(button => {
-        button.addEventListener('click', function() {
-            const tournamentId = this.getAttribute('data-id');
-            const url = `http://127.0.0.1:8000/model-bracket/?tournament_id=${tournamentId}`;
-            window.location.assign(url);
-        });
-    });
-});
-
-    </script>
-        
+    <script src="{% static 'js/menu-single.js' %}"></script>
 
 </body>
 </html>
