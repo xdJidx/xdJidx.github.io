@@ -10,8 +10,10 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from django.http import JsonResponse
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.models import User
+from django.http import HttpResponseNotAllowed
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -134,6 +136,9 @@ def display_tournament_info(request, tournament_id):
     return render(request, 'tcp_gaming/bracket/menu-single.html', {'tournament': tournament})
 
 
-
-    
+def supprimer_participant(request, participant_id):
+    participant = get_object_or_404(Participant, pk=participant_id)
+    # Supprimez le participant
+    participant.delete()
+    # Redirigez vers la page souhaitée après la suppression ou retournez une répons
 
