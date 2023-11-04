@@ -74,3 +74,20 @@ body{
     left: 80%;
 
 }
+
+.create-participant-button {
+    position: fixed; /* Fixed position */
+    top: 10px; /* 10px du haut */
+    right: 10px; /* 10px de droite */
+    padding: 10px 20px; /* Espace interne pour le texte */
+    background-color: #4CAF50; /* Couleur de fond */
+    color: white; /* Couleur du texte */
+    border: none; /* Pas de bordure */
+    border-radius: 5px; /* Coins arrondis */
+    cursor: pointer; /* Change le curseur en main lorsqu'on survole */
+    z-index: 1000; /* S'assure que le bouton reste au-dessus des autres éléments */
+  }
+  
+  .create-participant-button:hover {
+    background-color: #45a049; /* Couleur de fond au survol */
+  }

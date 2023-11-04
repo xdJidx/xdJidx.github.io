@@ -12,6 +12,8 @@ urlpatterns = [
     path('list-tournois/', views.list_tournament, name='list-tournois'),
     path('get-user/', views.get_current_user, name='get-user'),
     path('tournament/<int:tournament_id>/', views.display_tournament_info, name='tournament-info'),
-    path('delete-participants/', views.supprimer_participant, name='delete-participants')
+    path('participant/<int:pk>/', views.ParticipantDelete.as_view(), name='participant-delete'),
+    path('count-participants-per-tournoi/', views.count_participants_per_tournoi),
+
 
 ]

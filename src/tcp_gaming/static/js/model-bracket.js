@@ -72,5 +72,34 @@ function createParticipant() {
         });
 }
 
-// Ajout de l'écouteur d'événements au bouton
-document.getElementById('create-participant-btn').addEventListener('click', createParticipant);
+
+function getCounts() {
+    if (!tournamentId) {
+        console.error('Aucun ID de tournoi spécifié dans l\'URL');
+        return;
+    }
+
+    fetch(`http://127.0.0.1:8000/api/count-participants-per-tournoi/?tournoi=${tournamentId}`)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data); // Cela vous montrera la structure exacte de l'objet que vous recevez.
+            let resultsDiv = document.getElementById('results');
+            // Supposons que vous ayez aussi un nom de tournoi, vous devez l'utiliser pour accéder à la donnée
+            const tournoiNom = Object.keys(data)[0]; // Cela prend le nom du premier tournoi dans l'objet
+            const participantCount = data[tournoiNom];
+            resultsDiv.innerHTML = `Le tournoi ${tournoiNom} a ${participantCount} participants.<br>`;
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+// Exécutez la fonction getCounts lors du chargement de la page
+document.addEventListener('DOMContentLoaded', getCounts);
+
+
+
+
+
+
+
+
+

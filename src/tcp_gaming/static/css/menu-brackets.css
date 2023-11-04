@@ -1,32 +1,144 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;1,200;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* Base reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+
 body {
-    background-image: url(https://media.tenor.com/uTGE6zSoSs8AAAAC/future-gaming.gif);
-    background-repeat: no-repeat;
-    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #2C3E50 0%, black 100%);
+    color: #fff;
+    line-height: 1.6;
+    padding: 40px 0;
 }
 
-.title {
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .title {
     text-align: center;
-    color: white;
-}
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    background: linear-gradient(45deg, #f06, #aef, #f90, #2bd);
+    background-size: 200% 200%;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: gradientBG 10s ease infinite;
+    text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.7);
+  }
+  
+  
 
+/* Button design with hover effect */
 .tournament-button {
-    margin-left: 40%;
-    margin-top: 1%;
-    width: 20%;
-    height: 10%;
-    border-radius: 10px;
-    border-color: blueviolet;
-    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    min-width: 200px; /* Reduced from 250px */
+    height: 50px; /* Reduced from 60px */
+    border-radius: 25px; /* Slightly reduced for aesthetics */
+    border: none;
+    background-color: #FF8E53;
     color: white;
-    font-size: 20px;
+    font-size: 1rem; /* Reduced from 1.25rem */
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 0 20px; /* Adjusted padding */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    overflow: hidden;
 }
 
+
+.tournament-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: all 0.3s;
+    transform: translateX(-100%) rotate(45deg);
+}
+
+.tournament-button:hover::after {
+    transform: translateX(100%) rotate(45deg);
+}
+
+.tournament-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(255,142,83,0.5);
+}
+
+/* Styling for informational text */
 .tournament-info {
     text-align: center;
-    color: white;
+    font-size: 1rem;
+    margin-top: 10px;
 }
-.tournoi-total{
+
+/* Total tournament count style */
+.tournoi-total {
     text-align: center;
-    margin-top: 10%;
+    margin-top: 20px;
+    font-size: 2rem;
+    font-weight: 600;
 }
+
+/* Style général pour les nombres de tournois */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+.tournoi-number {
+    font-size: 10px; /* Taille de police réduite davantage */
+    font-weight: bold;
+    color: #FE6B8B; /* Couleur d'accent */
+    margin-bottom: 0.5em;
+    text-align: center;
+    font-family: 'Lato', sans-serif; /* Police Lato maintenue */
+}
+
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .title, .tournament-info, .tournoi-total {
+        font-size: 5vw;
+    }
+
+    .tournament-button {
+        width: 70%;
+        font-size: 4vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .title, .tournament-info, .tournoi-total {
+        font-size: 6vw;
+    }
+
+    .tournament-button {
+        width: 80%;
+        font-size: 5vw;
+    }
+}
+
+
+
+
+
+
