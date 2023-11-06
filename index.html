@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TCP Gaming</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="icon" href="{% static 'css/images/favicon.ico' %}" type="image/x-icon">
+</head>
+
+<body>
+    <div class="top">
+        <div class="menu-icon">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="hour">
+            <h3> {{ date|date:"H\hi" }} </h3>
+        </div>
+        <div class="title">
+            <h1>TCP GAMING</h1>
+        </div>
+        <button>
+            <a href="http://src/tcp_gaming/templates/tcp_gaming/index.html">
+                Se rendre à l'Accueil
+        </button>
+</body>
+</html>
