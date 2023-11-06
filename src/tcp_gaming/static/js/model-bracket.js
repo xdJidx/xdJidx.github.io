@@ -71,6 +71,9 @@ function createParticipant() {
             console.error('Erreur :', error);
         });
 }
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('createParticipantBtn').addEventListener('click', createParticipant);
+});
 
 
 function getCounts() {
@@ -82,18 +85,50 @@ function getCounts() {
     fetch(`http://127.0.0.1:8000/api/count-participants-per-tournoi/?tournoi=${tournamentId}`)
         .then(response => response.json())
         .then(data => {
-            console.log(data); // Cela vous montrera la structure exacte de l'objet que vous recevez.
+            console.log(data); // This will show you the exact structure of the object you're receiving.
             let resultsDiv = document.getElementById('results');
-            // Supposons que vous ayez aussi un nom de tournoi, vous devez l'utiliser pour accéder à la donnée
-            const tournoiNom = Object.keys(data)[0]; // Cela prend le nom du premier tournoi dans l'objet
+            const tournoiNom = Object.keys(data)[0]; // This takes the name of the first tournament in the object
             const participantCount = data[tournoiNom];
-            resultsDiv.innerHTML = `Le tournoi ${tournoiNom} a ${participantCount} participants.<br>`;
+            resultsDiv.innerHTML = `${tournoiNom}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ${participantCount} /8 Participants<br>`;
+            
+            // Check if the maximum number of participants has been reached
+            if (participantCount >= 8) {
+                displayParticipants(tournamentId);
+            }
         })
         .catch(error => console.error('Error:', error));
 }
 
-// Exécutez la fonction getCounts lors du chargement de la page
+// Execute the getCounts function when the page loads
 document.addEventListener('DOMContentLoaded', getCounts);
+
+function displayParticipants(tournamentId) {
+    // Assuming you have an endpoint that returns all participants for the tournament
+    fetch(`http://127.0.0.1:8000/api/participants/?tournoi=${tournamentId}`)
+        .then(response => response.json())
+        .then(participants => {
+            // Sort participants randomly
+            participants.sort(() => 0.5 - Math.random());
+
+            // Loop over each participant and place them in a div
+            participants.forEach((participant, index) => {
+                // Assuming your player div IDs are like 'player1', 'player2', ...
+                let playerDiv = document.getElementById(`player${index + 1}`);
+                if (playerDiv) {
+                    playerDiv.textContent = participant.nom; // Use the property that holds the participant's name
+                }
+            });
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+
+
+
+
+
+
+
 
 
 

@@ -88,6 +88,14 @@ class TournoiDelete(generics.DestroyAPIView):
 class ParticipantDelete(generics.DestroyAPIView):
     queryset = Participant.objects.all()
     serializer_class = ParticipantSerializer
+    def perform_create(self, serializer):
+        tournoi_id = self.kwargs.get('pk')  # ou self.request.data si l'ID du tournoi est envoyé dans le corps de la requête
+        tournoi = Tournoi.objects.get(pk=tournoi_id)
+
+        if tournoi.participants.count() >= tournoi.limite_joueurs:
+            return Response({'error': 'Le nombre limite de participants est atteint.'}, status=status.HTTP_400_BAD_REQUEST)
+
+        serializer.save(tournoi=tournoi)
 
 @api_view(['GET'])
 def count_tournois(request):
@@ -150,11 +158,6 @@ def supprimer_tournoi(request, tournoi_id):
     
     # On renvoie une réponse JSON indiquant le succès de l'opération
     return JsonResponse({'status': 'success'}, status=204)
-
-
-class ParticipantListCreate(generics.ListCreateAPIView):
-    queryset = Participant.objects.all()
-    serializer_class = ParticipantSerializer
 
     def perform_create(self, serializer):
         tournoi_id = self.kwargs.get('pk')  # ou self.request.data si l'ID du tournoi est envoyé dans le corps de la requête

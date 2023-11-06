@@ -1,93 +1,117 @@
+/* Réinitialisation du style des navigateurs pour éviter les différences par défaut */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style de base du corps de la page */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #2C3E50, rgba(0, 0, 0, 0.9));
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Conteneur principal pour les brackets */
 .bracket {
     display: flex;
-    flex-direction: row;
+    flex-direction: row; /* Alignement des enfants en ligne */
+    justify-content: center; /* Centrage horizontal des enfants */
+    align-items: center; /* Centrage vertical des enfants */
     gap: 20px;
+    color: #FFF;
+    height: 100vh; /* Utilise la hauteur complète de la fenêtre d'affichage */
+    margin: 0 auto; /* Centrage additionnel pour les navigateurs qui le nécessitent */
 }
 
-.round {
+/* Styles pour les rondes et la finale */
+.round, .final {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-left: 40px;
-    margin-top: 1.25%;
+    gap: 20px;
+    background: rgba(0, 0, 0, 0.1);
 }
 
-.round2 {
-    display: flex;
-    flex-direction: column;
-    gap: 100px;
-    margin-left: 10%;
-    margin-top: 4.5%;
-}
-
-.round3 {
-    display: flex;
-    flex-direction: column;
-    gap: 50%;
-    margin-left: 100px;
-    margin-top: 12.5%;
-}
-.final{
-    display: flex;
-    flex-direction: column;
-    gap: 50%;
-    margin-left: 100px;
-    margin-top: 25%;
-}
-
+/* Styles pour chaque match */
 .match {
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    border: 1px solid black;
-    padding: 5px;
-    width: 150px;
+    gap: 10px; /* Augmentation de l'espace entre les joueurs */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px; /* Augmentation du padding */
+    width: 200px; /* Augmentation de la largeur */
+    background: rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px; /* Ajout d'une marge en bas si nécessaire */
 }
 
+.demi-final .match {
+    margin-bottom: 70%; /* Espacement supplémentaire en dessous de chaque match, si nécessaire */
+    margin-top: 65%;
+}
+
+/* Styles pour les joueurs */
 .player {
-    padding: 5px;
-    height: 18px;  /* Augmentation de la hauteur */
-    border: 1px solid black;
-    background-color: #eee;
+    padding: 10px; /* Augmentation du padding */
+    height: 30px; /* Augmentation de la hauteur */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 0; /* Réinitialisation des marges si nécessaire */
+    display: flex; /* Pour aligner le texte à l'intérieur des boîtes joueur */
+    align-items: center; /* Alignement vertical du texte */
+    justify-content: center; /* Alignement horizontal du texte */
 }
 
-.score {
-    display: none; /* Cache les scores */
-}
-body{
-   background-color: gray; 
-}
-.titre{
-    text-align: right;
-    color: black;
-    font-size: 30px;
-    margin-right: 10%;
-    margin-top: 1%;
-
+/* Effet au survol pour les joueurs */
+.player:hover {
+    background-color: rgba(255, 255, 255, 0.2); 
 }
 
-.join-btn{
-    position: absolute;
-    top: 10%;
-    width: 10%;
-    height: 10%;
-    left: 80%;
+/* ... Vos autres styles ... */
 
+/* Styles pour les résultats */
+.results {
+    position: fixed;
+    top: 10px; /* Positionnez à 10px du haut de la page */
+    left: 50%; /* Positionnement à 50% de la largeur de la fenêtre à partir de la gauche */
+    transform: translateX(-50%); /* Décalez l'élément de 50% de sa propre largeur vers la gauche */
+    width: calc(30% - 20px); /* Largeur ajustée pour le padding */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Ombre pour un effet 3D */
+    overflow-y: auto;
+    max-height: 300px;
+    z-index: 999; /* Assure une haute visibilité dans la pile d'éléments */
+    color: #FFF; /* Texte en blanc pour les résultats */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Bordure claire semi-transparente */
+    text-align: center;
 }
 
+/* ... Reste de votre CSS ... */
+
+/* Styles pour le bouton de création de participant */
 .create-participant-button {
-    position: fixed; /* Fixed position */
-    top: 10px; /* 10px du haut */
-    right: 10px; /* 10px de droite */
-    padding: 10px 20px; /* Espace interne pour le texte */
-    background-color: #4CAF50; /* Couleur de fond */
-    color: white; /* Couleur du texte */
+    position: fixed; /* Position fixe */
+    top: 10px; /* 10px du haut de la page */
+    right: 10px; /* 10px du côté droit de la page */
+    padding: 10px 20px; /* Espace interne autour du texte */
+    background-color: #FF8E53; /* Couleur de fond */
+    color: white; /* Couleur de texte */
     border: none; /* Pas de bordure */
     border-radius: 5px; /* Coins arrondis */
-    cursor: pointer; /* Change le curseur en main lorsqu'on survole */
-    z-index: 1000; /* S'assure que le bouton reste au-dessus des autres éléments */
-  }
-  
-  .create-participant-button:hover {
-    background-color: #45a049; /* Couleur de fond au survol */
-  }
+    cursor: pointer; /* Changement de curseur au survol */
+    z-index: 1000; /* Assure que le bouton reste au-dessus des autres éléments */
+}
+
+/* Effet au survol pour le bouton */
+.create-participant-button:hover {
+    background-color: #FE6B8B; /* Changement de couleur de fond au survol */
+}
+
+/* Styles pour les rondes et la finale, ajout d'une marge à droite */
+.bracket > .round{
+    margin-right: 50px; /* Vous pouvez ajuster cette valeur selon vos besoins */
+}
+
+/* Styles pour décaler spécifiquement la finale */
+.final {
+    margin-left: 50px; /* Ajustez la valeur selon l'espace désiré */
+}

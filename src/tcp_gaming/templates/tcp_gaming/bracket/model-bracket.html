@@ -13,92 +13,57 @@
         <!-- Round 1 -->
         <div class="round">
             <div class="match">
-                <div class="player" id="player"></div>
-                <div class="player" id="player"></div>
+                <div class="player" id="player1"></div>
+                <div class="player" id="player2"></div>
             </div>
             <div class="match">
-                <div class="player" id="player"></div>
-                <div class="player" id="player"></div>
+                <div class="player" id="player3"></div>
+                <div class="player" id="player4"></div>
             </div>
             <div class="match">
-                <div class="player" id="player"></div>
-                <div class="player" id="player"></div>
+                <div class="player" id="player5"></div>
+                <div class="player" id="player6"></div>
             </div>
             <div class="match">
-                <div class="player" id="player"></div>
-                <div class="player" id="player"></div>
-            </div>
-            <div class="match">
-                <div class="player" id="player"></div>
-                <div class="player" id="player"></div>
-            </div>
-            <div class="match">
-                <div class="player" id="player"></div>
-                <div class="player" id="player"></div>
-            </div>
-            <div class="match">
-                <div class="player" id="player"></div>
-                <div class="player" id="player"></div>
-            </div>
-            <div class="match">
-                <div class="player" id="player"></div>
-                <div class="player" id="player"></div>
+                <div class="player" id="player7"></div>
+                <div class="player" id="player8"></div>
             </div>
         </div>
 
        
-       <button id="create-participant-btn" class="create-participant-button">rejoindre tournoi</button>
+        <button id="createParticipantBtn" class="create-participant-button">rejoindre le tournoi</button>
+
        
-       <button id="loadCounts">Charger les nombres de participants</button>
-        <div id="results"></div>
+       <div id="results" class="results"></div>
+       <div id="participantsList"></div>
 
+        <div class="demi-final">
+            <!-- Demi-final -->
+            <div class="match">
+                <div class="player" id="player"></div>
+                <div class="player" id="player"></div>
+            </div>
+            <div class="match">
+                <div class="player" id="player"></div>
+                <div class="player" id="player"></div>
+            </div>
 
-<script src="{% static 'js/model-bracket.js' %}"></script>
-
-        <!-- Round 2 -->
-        <div class="round2">
-            <div class="match">
-                <div class="player2"></div>
-                <div class="player2"></div>
-            </div>
-            <div class="match">
-                <div class="player2"></div>
-                <div class="player2"></div>
-            </div>
-            <div class="match">
-                <div class="player2"></div>
-                <div class="player2"></div>
-            </div>
-            <div class="match">
-                <div class="player2"></div>
-                <div class="player2"></div>
-            </div>
         </div>
 
-        <!-- Semifinals -->
-        <div class="round3">
-            <div class="match">
-                <div class="player3"></div>
-                <div class="player3"></div>
-            </div>
-            <div class="match">
-                <div class="player3"></div>
-                <div class="player3"></div>
-            </div>
-        </div>
-
-        <!-- Finals and Bronze Match -->
         <div class="final">
             <!-- Finals -->
             <div class="match">
-                <div class="player4"></div>
-                <div class="player4"></div>
+                <div class="player" id="player"></div>
+                <div class="player" id="player"></div>
             </div>
-
         </div>
     </div>
+    <script src="{% static 'js/model-bracket.js' %}"></script>
 </body>
 </html>
+
+
+
 
 
 
