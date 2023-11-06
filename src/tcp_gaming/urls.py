@@ -14,6 +14,8 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 from .views import index, concours_view, photo_view, tournoi_view, autres_view
@@ -42,4 +44,4 @@ urlpatterns = [
     path('send', views.send , name ="send"),
     path('getMessages/<str:room>/', views.getMessages , name ="getMessages"),
     
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
