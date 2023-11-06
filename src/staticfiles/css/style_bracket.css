@@ -1,0 +1,32 @@
+body {
+    background-image: url(https://media.tenor.com/uTGE6zSoSs8AAAAC/future-gaming.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.title {
+    text-align: center;
+    color: white;
+}
+
+.tournament-button {
+    margin-left: 40%;
+    margin-top: 1%;
+    width: 20%;
+    height: 10%;
+    border-radius: 10px;
+    border-color: blueviolet;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    font-size: 20px;
+}
+
+.tournament-info {
+    text-align: center;
+    color: white;
+}
+.tournoi-total{
+    text-align: center;
+    margin-top: 10%;
+}
+

@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;1,400&display=swap');
+
+html, body {
+    height: 100%;
+    margin: 0;
+    border: 0;
+    font-family: 'Lato', sans-serif;
+    overflow: hidden; /* Empêche le défilement vertical */
+}
+
+body {
+    padding-top: 60px;
+    background-color: rgba(0, 0, 0, .35);
+    background-image: url("images/backgroundconcours.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed; /* Rend l'image de fond fixe */
+}
+
+.top {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    width: 100%;
+    z-index: 10;
+    padding: 10px 20px;
+    margin-top: -5%;
+    
+}
+
+.menu-icon {
+    display: flex;
+    flex-direction: column;
+    width: 30px;
+    cursor: pointer;
+}
+
+.menu-icon div {
+    height: 3px;
+    background-color: rgb(8, 8, 8);
+    margin: 2px 0;
+}
+
+.title {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 10%;
+    
+}
+
+.navbar {
+    margin: 0 auto;
+    width: auto;      /* Changement ici pour permettre l'ajustement dynamique */
+    display: flex;    /* Ajout pour activer le mode flexbox */
+    justify-content: center; /* Ajout pour centrer les éléments horizontalement */
+}
+
+
+.navbar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar ul li a {
+    color: rgb(5, 5, 5);
+    text-decoration: none;
+    justify-content: center;
+}
+
+.auth {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    padding-right: 5%;
+}
+
+.auth button {
+    background-color: transparent;
+    color: rgb(7, 7, 7);
+    border: 1px solid white;
+    padding: 5px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    right: 20%;
+}
+
+.auth button:hover {
+    background-color: white;
+    color: #1a1a1a;
+}
+
+
+.date-section {
+    text-align: center; /* Centre le texte horizontalement */
+    margin-top: 20px; /* Ajoute un espacement en haut pour centrer verticalement */
+    color: rgb(5, 5, 5); /* Ajoutez une couleur blanche au texte pour le contraste */
+}
+
+.hour {
+    position: absolute;
+    left: 15%;
+}
