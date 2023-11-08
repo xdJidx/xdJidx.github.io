@@ -20,15 +20,11 @@ const urlParams = new URLSearchParams(window.location.search);
 const tournamentId = urlParams.get('tournament_id');
 console.log('ID du tournoi récupéré de l\'URL:', tournamentId);
 
-// Fonction pour vérifier si le participant existe déjà
-function participantExists(username, tournamentId) {
-    return fetch(`http://127.0.0.1:8000/api/participants/?nom=${username}&tournoi=${tournamentId}`)
-        .then(response => response.json())
-        .then(data => data.length > 0); // Supposons que l'API retourne un tableau de participants
-}
-
 // Fonction pour créer un participant
 function createParticipant() {
+    const createParticipantBtn = document.getElementById('createParticipantBtn');
+    createParticipantBtn.style.display = 'none'; // Masquer le bouton
+
     const csrftoken = getCookie('csrftoken');
     fetch('/api/get-user/')
         .then(response => {
@@ -39,23 +35,18 @@ function createParticipant() {
         })
         .then(data => {
             console.log('Données utilisateur récupérées:', data);
-            // Vérifier d'abord si le participant existe
-            return participantExists(data.username, tournamentId).then(exists => {
-                if (exists) {
-                    throw new Error('Le participant existe déjà pour cet utilisateur et ce tournoi');
-                }
-                // Si le participant n'existe pas, procéder à la création
-                return fetch('http://127.0.0.1:8000/api/participants/', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRFToken': csrftoken,
-                    },
-                    body: JSON.stringify({
-                        nom: data.username,
-                        tournoi: tournamentId,
-                    })
-                });
+            
+            // Procéder à la création du participant
+            return fetch('http://127.0.0.1:8000/api/participants/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrftoken,
+                },
+                body: JSON.stringify({
+                    nom: data.username,
+                    tournoi: tournamentId,
+                })
             });
         })
         .then(response => {
@@ -66,16 +57,32 @@ function createParticipant() {
         })
         .then(data => {
             console.log('Participant créé :', data);
+
+            // Définition de currentPlayerId dans le localStorage après la création du participant
+            localStorage.setItem('currentPlayerId', data.id);
+
+            // Actualiser la page après la création du participant
+            location.reload();
         })
         .catch(error => {
             console.error('Erreur :', error);
+            createParticipantBtn.style.display = 'block'; // Réafficher le bouton en cas d'erreur
         });
 }
+
+
+
+
+
+// Ajout de l'écouteur d'événements pour le bouton de création de participant
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('createParticipantBtn').addEventListener('click', createParticipant);
+    const createParticipantBtn = document.getElementById('createParticipantBtn');
+    if (createParticipantBtn) {
+        createParticipantBtn.addEventListener('click', createParticipant);
+    }
 });
 
-
+// Fonction pour obtenir le nombre de participants
 function getCounts() {
     if (!tournamentId) {
         console.error('Aucun ID de tournoi spécifié dans l\'URL');
@@ -85,13 +92,12 @@ function getCounts() {
     fetch(`http://127.0.0.1:8000/api/count-participants-per-tournoi/?tournoi=${tournamentId}`)
         .then(response => response.json())
         .then(data => {
-            console.log(data); // This will show you the exact structure of the object you're receiving.
+            console.log(data);
             let resultsDiv = document.getElementById('results');
-            const tournoiNom = Object.keys(data)[0]; // This takes the name of the first tournament in the object
+            const tournoiNom = Object.keys(data)[0];
             const participantCount = data[tournoiNom];
             resultsDiv.innerHTML = `${tournoiNom}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ${participantCount} /8 Participants<br>`;
             
-            // Check if the maximum number of participants has been reached
             if (participantCount >= 8) {
                 displayParticipants(tournamentId);
             }
@@ -99,42 +105,35 @@ function getCounts() {
         .catch(error => console.error('Error:', error));
 }
 
-// Execute the getCounts function when the page loads
+// Ajout de l'écouteur d'événements pour l'exécution de getCounts lorsque la page est chargée
 document.addEventListener('DOMContentLoaded', getCounts);
 
+// Fonction pour afficher la liste des participants
 function displayParticipants(tournamentId) {
-    // Assuming you have an endpoint that returns all participants for the tournament
-    fetch(`http://127.0.0.1:8000/api/participants/?tournoi=${tournamentId}`)
-        .then(response => response.json())
-        .then(participants => {
-            // Sort participants randomly
-            participants.sort(() => 0.5 - Math.random());
-
-            // Loop over each participant and place them in a div
-            participants.forEach((participant, index) => {
-                // Assuming your player div IDs are like 'player1', 'player2', ...
-                let playerDiv = document.getElementById(`player${index + 1}`);
-                if (playerDiv) {
-                    playerDiv.textContent = participant.nom; // Use the property that holds the participant's name
-                }
-            });
-        })
-        .catch(error => console.error('Error:', error));
+    let storedParticipants = localStorage.getItem(`participants_${tournamentId}`);
+    
+    if (storedParticipants) {
+        storedParticipants = JSON.parse(storedParticipants);
+        displayParticipantsList(storedParticipants);
+    } else {
+        fetch(`http://127.0.0.1:8000/api/participants/?tournoi=${tournamentId}`)
+            .then(response => response.json())
+            .then(participants => {
+                participants.sort(() => 0.5 - Math.random());
+                localStorage.setItem(`participants_${tournamentId}`, JSON.stringify(participants));
+                displayParticipantsList(participants);
+            })
+            .catch(error => console.error('Error:', error));
+    }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Fonction pour afficher la liste des participants dans le DOM
+function displayParticipantsList(participants) {
+    participants.forEach((participant, index) => {
+        let playerDiv = document.getElementById(`player${index + 1}`);
+        if (playerDiv) {
+            playerDiv.textContent = participant.nom;
+        }
+    });
+}
 

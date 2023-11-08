@@ -15,9 +15,7 @@ from django.contrib.auth.models import User
 from django.http import HttpResponseNotAllowed, Http404
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_http_methods
-
-
-
+from django.views.decorators.csrf import csrf_exempt
 
 @xframe_options_exempt
 def bracket_view(request):
@@ -80,6 +78,7 @@ class TournoiListCreate(generics.ListCreateAPIView):
 class ParticipantListCreate(generics.ListCreateAPIView):
     queryset = Participant.objects.all()
     serializer_class = ParticipantSerializer
+
 
 class TournoiDelete(generics.DestroyAPIView):
     queryset = Tournoi.objects.all()
@@ -159,7 +158,7 @@ def supprimer_tournoi(request, tournoi_id):
     # On renvoie une réponse JSON indiquant le succès de l'opération
     return JsonResponse({'status': 'success'}, status=204)
 
-    def perform_create(self, serializer):
+def perform_create(self, serializer):
         tournoi_id = self.kwargs.get('pk')  # ou self.request.data si l'ID du tournoi est envoyé dans le corps de la requête
         tournoi = Tournoi.objects.get(pk=tournoi_id)
 
@@ -180,5 +179,9 @@ def count_participants_per_tournoi(request):
     counts = {tournoi.nom: tournoi.participants.count() for tournoi in tournois}
     
     return JsonResponse(counts)
+
+
+
+
 
 

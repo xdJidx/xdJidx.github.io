@@ -2,6 +2,7 @@ from django.urls import path
 from .views import TournoiListCreate, ParticipantListCreate
 from . import views
 
+
 urlpatterns = [
     path('tournois/', TournoiListCreate.as_view(), name='tournoi-list-create'),
     path('participants/', ParticipantListCreate.as_view(), name='participant-list-create'),
@@ -14,6 +15,5 @@ urlpatterns = [
     path('tournament/<int:tournament_id>/', views.display_tournament_info, name='tournament-info'),
     path('participant/<int:pk>/', views.ParticipantDelete.as_view(), name='participant-delete'),
     path('count-participants-per-tournoi/', views.count_participants_per_tournoi),
-
-
+    
 ]

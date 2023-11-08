@@ -43,6 +43,8 @@ body {
     width: 200px; /* Augmentation de la largeur */
     background: rgba(0, 0, 0, 0.2);
     margin-bottom: 10px; /* Ajout d'une marge en bas si nécessaire */
+    position: relative;
+    border-color: rgba(255, 142, 83, 0.4);
 }
 
 .demi-final .match {
@@ -52,18 +54,18 @@ body {
 
 /* Styles pour les joueurs */
 .player {
-    padding: 10px; /* Augmentation du padding */
+    padding: 5px 10px; /* Augmentation du padding */
+    border-radius: 4px;
     height: 30px; /* Augmentation de la hauteur */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background-color: rgba(255, 255, 255, 0.1);
-    margin: 0; /* Réinitialisation des marges si nécessaire */
+    margin-right: 10px;
     display: flex; /* Pour aligner le texte à l'intérieur des boîtes joueur */
     align-items: center; /* Alignement vertical du texte */
     justify-content: center; /* Alignement horizontal du texte */
+    flex-grow: 1;
 }
 
 /* Effet au survol pour les joueurs */
-.player:hover {
+.player-score-container:hover {
     background-color: rgba(255, 255, 255, 0.2); 
 }
 
@@ -115,3 +117,46 @@ body {
 .final {
     margin-left: 50px; /* Ajustez la valeur selon l'espace désiré */
 }
+
+
+.player-score-container {
+    display: flex; /* Align children in a row */
+    justify-content: space-between; /* Space between player and score */
+    align-items: center; /* Vertical alignment */
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px; /* Rounded corners */
+    padding: 5px 10px; /* Some padding around the content */
+}
+
+.score {
+    background: grey; /* Example score background color */
+    color: white; /* Example text color */
+    border-radius: 10%; /* Make the score a circle */
+    width: 24px; /* Fixed width */
+    height: 24px; /* Fixed height */
+    display: flex; /* Use flex to center content of score */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    font-weight: bold; /* Make the score text bold */
+}
+
+.feedback{
+    color: white;
+    position: absolute;
+    left: 70%;
+    bottom: 15%;
+    border-color: #FF8E53;
+}
+
+
+.feedback textarea,
+.feedback input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgba(255, 142, 83, 0.4); /* Updated border color with 40% opacity */
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.2);
+}
+
