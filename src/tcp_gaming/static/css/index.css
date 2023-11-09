@@ -118,6 +118,78 @@ body {
 
 }
 
+.actualité{
+    position: absolute;
+    background-color: transparent;
+    left: 30%;
+    top: 38%;
+    color: white;
+    font-size: 16px; /* Taille de la police */
+    line-height: 1.5; /* Espacement entre les lignes */
+    margin-bottom: 20px; /* Marge en bas du paragraphe */
+    text-indent: 20px; /* Retrait de la première ligne en pixels */
+    border: #ffffff;
+}
+
+.title-actualité{
+    text-decoration: underline;
+}
+
+.button-actualité {
+    color: white; /* Changer la couleur du texte du bouton en rouge */
+    background-color: transparent; /* Rendre le fond du bouton transparent */
+    border: transparent;
+    
+  }
+
+.button-actualité:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.actualité p {
+    font-size: 18px; /* Taille de la police */
+    line-height: 1.5; /* Espacement entre les lignes */
+    margin-bottom: 10px; /* Marge en bas de chaque paragraphe */
+    color: white; /* Couleur du texte */
+    text-indent: 20px; /* Retrait de la première ligne en pixels */
+  }
+
+
+  .popup {
+    display: none;
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    z-index: 9999;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 450px; /* Largeur de la fenêtre popup */
+    height: 300px; /* Hauteur de la fenêtre popup */
+    overflow: auto;
+    border-radius: 10px;
+  }
+  
+  .popup p {
+    margin-bottom: 10px;
+  }
+  
+  #closeButton {
+    background-color: white;
+    color: black;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .litle-tiltle {
+    text-decoration: underline;
+  }
+
+
 #stars {
     width: 1px;
     height: 1px;

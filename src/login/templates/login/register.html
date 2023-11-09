@@ -13,8 +13,7 @@
       <form class="register-form" method="POST" action="{% url 'register' %}">
         {% csrf_token %}
         <h2>Register</h2>
-        <input type="text" placeholder="Full Name *" required/>
-        <input type="text" placeholder="Username *" required/>
+        <input type="text" placeholder="User" required/>
         <input type="email" placeholder="Email *" required/>
         <input type="password" placeholder="Password *" required/>
         <a class="btn" href="#">

@@ -26,6 +26,7 @@ body {
     margin-bottom: 20px;
 }
 .tournois {
+    margin-top: 100px;
     list-style-type: none;
     max-width: 100%;
     display: flex;
@@ -41,13 +42,11 @@ body {
     justify-content: space-between;
     align-items: center;
     color: #FFF;
-    background: rgba(0, 0, 0, 0.1);
     flex: 1;
     min-width: 200px;
     width: 25%;
     box-sizing: border-box;
-    min-width: 200px;
-    flex: none;
+    border-radius: 5px;
 }
 .tournois li:hover {
     background: rgba(0, 0, 0, 0.2);
@@ -77,3 +76,4 @@ body {
     border: none;
     
 }
+

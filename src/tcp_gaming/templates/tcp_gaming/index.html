@@ -6,10 +6,34 @@
     <title>TCP Gaming</title>
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <link rel="icon" href="{% static 'css/images/favicon.ico' %}" type="image/x-icon">
-    <link rel="stylesheet" href="{% static 'js/index.js' %}">
 </head>
 
 <body>
+    <div class="actualité">
+        <button class="button-actualité"><p class="title-actualité">Mise a jour prevue le 30/10/2023 :</p></button>
+        <p>- Ajout d'un second modèle bracket dans la catégorie tournoi.</p>
+        <p>- Ajout de la rubrique concours.</p>
+        <p>- Integration du server discord sur le site.</p>
+        <p>- Amélioration du design de la page login.</p>
+      </div>
+      
+      <div id="popup" class="popup">
+        <p>Détail de la MAJ TCP Gaming version: 1.1
+            <p class="litle-tiltle">Nouveau bracket:
+            <p>Nouveau model de bracket double, les users doivents éliminer deux fois leur adversaire pour gagner le round (systeme de BO3 qui sera mis en place)</p>
+            </p>
+            <p class="litle-tiltle">Concours !!
+            <p>L'ajout d'une nouvelle rubrique appelée concours qui sera bientot disponible, permettant aux utilisateurs de patciper a des concours sur un système de vote. Les participants devrons afficher une image de leur choix et attendre jusqu'a ce que le concours soit terminé. En cas de d'images choquante ou irrespectueuse pour la vue du publique le participant sera banni.</p>
+            </p>
+            <p class="litle-tiltle">Discord server
+                <p>Ajout d'une vue du server discord TCP Gaming, avec le nombre de d'utilisateur en ligne. Cette fonctionnalité permet de renforcer la communauté de TCP Gaming </p>
+            </p>
+            <p class="litle-tiltle">Amélioration du design
+                <p>Pour cette nouvelle mise a jour nous souhaitons nous ameliorer sur le design de la page login, meilleur interface pour pouvoir se connecter plus facilement (apple, compte gmail, facebook...). Mais aussi une amelioration du tchat sur la maniere de pouvoir ajouter des amis et creer des alles privées</p>
+            </p>
+        </p>
+        <button id="closeButton">Fermer</button>
+      </div>
     
     <div id="stars"></div>
     <div id="stars2"></div>
@@ -41,5 +65,21 @@
     <div class="cellule-tchat">
             <iframe src="http://127.0.0.1:8000/tchat_home/" width="200%" height="800px" frameborder="0" style="border:none;"></iframe>
     </div>
+    <script>
+        // Sélectionnez le bouton et la fenêtre popup
+const button = document.querySelector('.button-actualité');
+const popup = document.querySelector('.popup');
+const closeButton = document.getElementById('closeButton');
+
+// Ajoutez un gestionnaire d'événements pour afficher la fenêtre popup lorsque le bouton est cliqué
+button.addEventListener('click', () => {
+  popup.style.display = 'block';
+});
+
+// Ajoutez un gestionnaire d'événements pour fermer la fenêtre popup lorsque le bouton "Fermer" est cliqué
+closeButton.addEventListener('click', () => {
+  popup.style.display = 'none';
+});
+    </script>
 </body>
 </html>
