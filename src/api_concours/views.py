@@ -1,17 +1,20 @@
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from django.views import View
+from .forms import ConcoursForm
 from rest_framework import generics
-from .models import Concours, Participant
-from .serializers import ConcoursSerializer, ParticipantSerializer
-from django.contrib.admin.views.decorators import staff_member_required
-from django.utils.decorators import method_decorator
 
-@method_decorator(staff_member_required, name='dispatch')
+@login_required
+class CreerConcours(generics.ListCreateAPIView):
+    template_name = 'creer_concours.html'
 
-class ConcoursListCreate(generics.ListCreateAPIView):
-    queryset = Concours.objects.all()
-    serializer_class = ConcoursSerializer
+    def get(self, request):
+        form = ConcoursForm()
+        return render(request, self.template_name, {'form': form})
 
-@method_decorator(staff_member_required, name='dispatch')
-
-class ParticipantListCreate(generics.ListCreateAPIView):
-    queryset = Participant.objects.all()
-    serializer_class = ParticipantSerializer
+    def post(self, request):
+        form = ConcoursForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('liste_concours')  # Rediriger vers la liste des concours après la création
+        return render(request, self.template_name, {'form': form})

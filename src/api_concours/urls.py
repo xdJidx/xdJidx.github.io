@@ -1,7 +1,7 @@
 from django.urls import path
-from . import views
+from .views import CreerConcours
 
 urlpatterns = [
-    path('concours_list/', views.ConcoursListCreate.as_view(), name='concours-list'),
-    path('participant_list/', views.ParticipantListCreate.as_view(), name='participant-list'),
+    path('creer_concours/', CreerConcours.as_view(), name='creer_concours'),
+    # Autres URL
 ]
