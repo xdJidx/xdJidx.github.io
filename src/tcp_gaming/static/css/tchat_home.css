@@ -19,7 +19,7 @@ margin-left: -15%;
 
 .container {
 border: 1px solid #dedede;  /* divisé par 2 */
-background-color: #f1f1f1;
+background-color: rgb(black, 0.5);
 border-radius: 2.5px;  /* divisé par 2 */
 padding: 10px;  /* divisé par 2 */
 margin: 5px 0;  /* divisé par 2 */
@@ -41,16 +41,17 @@ border-radius: 2px;  /* divisé par 2 */
 }
 
 input[type=submit] {
-background-color: black;
+background-color: transparent;
 color: white;
 padding: 7px 10px;  /* divisé par 2 */
 margin: 4px 0;  /* divisé par 2 */
-border: none;
-border-radius: 2px;  /* divisé par 2 */
+border: 1px white solid;
+border-radius: 10px;  /* divisé par 2 */
 cursor: pointer;
 }
 
 input[type=submit]:hover {
-background-color: black;
+background-color: white;
+color: black;
 }
 

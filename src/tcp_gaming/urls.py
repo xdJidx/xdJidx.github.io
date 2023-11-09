@@ -24,6 +24,10 @@ from chat import views
 
 urlpatterns = [
     path('', index, name='index'),
+    path('concours/', concours_view, name='concours'),
+    path('photo/', photo_view, name='photo'),
+    path('tournoi/', tournoi_view, name='tournoi'),
+    path('autres/', autres_view, name='autres'),
     path('api_concours/', include("api_concours.urls")),
     path('blog/', include("blog.urls")),
     path('admin/', admin.site.urls),

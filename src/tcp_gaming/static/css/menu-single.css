@@ -4,6 +4,8 @@
     padding: 0;
     box-sizing: border-box;
     transition: all 0.3s ease;
+    color: white;
+    text-decoration: none;
 }
 body {
     font-family: ‘Segoe UI’, Tahoma, Geneva, Verdana, sans-serif;
@@ -63,4 +65,15 @@ body {
 }
 .join-btn:hover {
     background-color: #FE6B8B;
+}
+
+.back-button2{
+    font-size: 20px;
+    position: absolute;
+    bottom: 90%;
+    left: 5%;
+    color: white;
+    background-color: transparent;
+    border: none;
+    
 }

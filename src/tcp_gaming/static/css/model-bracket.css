@@ -1,8 +1,10 @@
 /* Réinitialisation du style des navigateurs pour éviter les différences par défaut */
 * {
+    color:  white;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
 }
 
 /* Style de base du corps de la page */
@@ -160,3 +162,12 @@ body {
   background: rgba(0, 0, 0, 0.2);
 }
 
+.back-button{
+    position: absolute;
+    left: 2%;
+    bottom: 95.5%;
+    background-color: transparent;
+    font-size: 20px;
+    text-decoration: unset;
+    border: none;
+}

@@ -6,15 +6,16 @@
     <title>TCP Gaming</title>
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <link rel="icon" href="{% static 'css/images/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'js/index.js' %}">
 </head>
 
 <body>
+    
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
     <div class="top">
-        <div class="menu-icon">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
+
         <div class="hour">
             <h3> {{ date|date:"H\hi" }} </h3>
         </div>
@@ -30,17 +31,13 @@
     </div>
     <nav class="navbar">
         <ul class="nav-links">
-            <li><a href="{% url 'index' %}">Accueil</a></li>
-            <li><a href="{% url 'tournoi' %}">Tournoi</a></li>
-            <li><a href="{% url 'concours' %}">Concours</a></li>
-            <li><a href="{% url 'photo' %}">Sérénithéière</a></li>
-            <li><a href="{% url 'autres' %}">Autres activités</a></li>
+            <li><a href="http://127.0.0.1:8000/" class="rotate-link">Accueil</a></li>
+            <li><a href="http://127.0.0.1:8000/tournoi/" class="rotate-link">Tournoi</a></li>
+            <li><a href="http://127.0.0.1:8000/concours/" class="rotate-link">Concours</a></li>
+            <li><a href="http://127.0.0.1:8000/photo/" class="rotate-link">Sérénithéière</a></li>
+            <li><a href="http://127.0.0.1:8000/autres/" class="rotate-link">Autres activités</a></li>
         </ul>
     </nav>
-
-        <div class="date-section">
-            <h2>Nous sommes le {{ date|date:"d F Y " }}</h2>
-        </div>
     <div class="cellule-tchat">
             <iframe src="http://127.0.0.1:8000/tchat_home/" width="200%" height="800px" frameborder="0" style="border:none;"></iframe>
     </div>

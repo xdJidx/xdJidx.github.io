@@ -2,6 +2,8 @@ from datetime import datetime
 from django.shortcuts import render
 
 
+
+
 def index(request):
 
     date = datetime.today()
@@ -15,7 +17,9 @@ def photo_view(request):
     return render(request, "tcp_gaming/photo.html")
 
 def tournoi_view(request):
-    return render(request, "tcp_gaming/tournoi.html")
+    return render(request, "tcp_gaming/menu-bracket.html")
 
 def autres_view(request):
     return render(request, "tcp_gaming/autres.html")
+
+
