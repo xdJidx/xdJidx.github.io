@@ -2,8 +2,6 @@
 
 {% block content %}
 
-<h4>S'enregistrer Ici</h4>
-
 {% for message in messages %}
   <strong>{{ message }}</strong>
 {% endfor %}
@@ -13,28 +11,30 @@
       <form class="register-form" method="POST" action="{% url 'register' %}">
         {% csrf_token %}
         <h2>Register</h2>
-        <input type="text" placeholder="User" required/>
-        <input type="email" placeholder="Email *" required/>
-        <input type="password" placeholder="Password *" required/>
+        <input type="text" name="username" id="username" placeholder="User" required/>
+        <input type="email" name="email" id="email" placeholder="Email *" required/>
+        <input type="password" name="password" id="password" placeholder="Password *" required/>
+        <input type="password1" name="password1" id="password1" placeholder="Confirm Password *" required/>
         <a class="btn" href="#">
           <span></span>
           <span></span>
           <span></span>
           <span></span>
-          Create
+          <button type="submit">Create</button>
         </a>
         <p class="message">Already registered? <a href="#">Sign In</a></p>
       </form>
       <form class="login-form" method="post">
+        {% csrf_token %}
         <h2></i> Login</h2>
-        <input type="text" placeholder="Username" required />
-        <input type="password" placeholder="Password" required/>
+        <input type="text" name="username" id="username" placeholder="Username" required />
+        <input type="password" name="password" id="password" placeholder="Password" required/>
         <a class="btn" href="#">
           <span></span>
           <span></span>
           <span></span>
           <span></span>
-          Sign in
+          <button type="submit">Sign in</button>
         </a>
         <p class="message">Not registered? <a href="#">Create an account</a></p>
       </form>
