@@ -46,12 +46,16 @@
         <div class="title">
             <h1>TCP GAMING</h1>
         </div>
+        {% if user.is_authenticated %}
+        <button type="submit"><a href="{% url 'logout' %}">Se deconnecter</a></button>
 
+        {% else %}
         <div class="auth">
             <a href="http://127.0.0.1:8000/login/">
                 <button>Se connecter</button>
             </a>
         </div>
+        {% endif %}
     </div>
     <nav class="navbar">
         <ul class="nav-links">

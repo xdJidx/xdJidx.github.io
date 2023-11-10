@@ -15,7 +15,9 @@ from django.contrib.auth.models import User
 from django.http import HttpResponseNotAllowed, Http404
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_http_methods
-from django.views.decorators.csrf import csrf_exempt
+
+
+
 
 @xframe_options_exempt
 def bracket_view(request):
@@ -79,7 +81,6 @@ class ParticipantListCreate(generics.ListCreateAPIView):
     queryset = Participant.objects.all()
     serializer_class = ParticipantSerializer
 
-
 class TournoiDelete(generics.DestroyAPIView):
     queryset = Tournoi.objects.all()
     serializer_class = TournoiSerializer
@@ -95,38 +96,34 @@ class ParticipantDelete(generics.DestroyAPIView):
             return Response({'error': 'Le nombre limite de participants est atteint.'}, status=status.HTTP_400_BAD_REQUEST)
 
         serializer.save(tournoi=tournoi)
-
+# API view to count the total number of tournaments
 @api_view(['GET'])
 def count_tournois(request):
+    # Count all tournaments in the database
     total_tournois = Tournoi.objects.count()
-    return Response({'count': total_tournois})
+    return JsonResponse({'count': total_tournois})
 
 from .models import Tournoi
 
-def count_tournois_starting_with_single():
-    # Utilisez le filtre de QuerySet pour obtenir les tournois dont le nom commence par "single"
+# API view to count the number of tournaments whose name starts with "single"
+@api_view(['GET'])
+def count_tournaments_starting_with_single(request):
+    # Use the QuerySet filter to get tournaments whose name starts with "single"
     single_count = Tournoi.objects.filter(nom__startswith='single').count()
-    return single_count
-def count_single_tournois(request):
-    single_count = count_tournois_starting_with_single()
     response_data = {'count': single_count}
     return JsonResponse(response_data)
 
-def count_tournois_starting_with_double():
-    # Utilisez le filtre de QuerySet pour obtenir les tournois dont le nom commence par "single"
-    single_count = Tournoi.objects.filter(nom__startswith='double').count()
-    return single_count
-
-def count_double_tournois(request):
-    double_count = count_tournois_starting_with_double()
+# API view to count the number of tournaments whose name starts with "double"
+@api_view(['GET'])
+def count_tournaments_starting_with_double(request):
+    # Use the QuerySet filter to get tournaments whose name starts with "double"
+    double_count = Tournoi.objects.filter(nom__startswith='double').count()
     response_data = {'count': double_count}
     return JsonResponse(response_data)
-
 
 def list_tournament(request):
     tournaments = Tournoi.objects.filter(nom__startswith='single')
     return render(request, 'tcp_gaming/bracket/menu-single.html', {'tournois': tournaments})
-
 
 def get_current_user(request):
     if request.user.is_authenticated:
@@ -158,7 +155,7 @@ def supprimer_tournoi(request, tournoi_id):
     # On renvoie une réponse JSON indiquant le succès de l'opération
     return JsonResponse({'status': 'success'}, status=204)
 
-def perform_create(self, serializer):
+    def perform_create(self, serializer):
         tournoi_id = self.kwargs.get('pk')  # ou self.request.data si l'ID du tournoi est envoyé dans le corps de la requête
         tournoi = Tournoi.objects.get(pk=tournoi_id)
 
@@ -179,9 +176,5 @@ def count_participants_per_tournoi(request):
     counts = {tournoi.nom: tournoi.participants.count() for tournoi in tournois}
     
     return JsonResponse(counts)
-
-
-
-
 
 

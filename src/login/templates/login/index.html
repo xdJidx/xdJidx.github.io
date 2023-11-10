@@ -12,9 +12,9 @@
      <form class="register-form" method="POST" action="{% url 'register' %}">
        {% csrf_token %}
        <h2>Register</h2>
-       <input type="text" name="username" id="username" placeholder="User" required/>
-       <input type="email" name="email" id="email" placeholder="Email *" required/>
-       <input type="password" name="password" id="password" placeholder="Password *" required/>
+       <input type="text" name="username" id="username_register" autocomplete="off" placeholder="User" required/>
+       <input type="email" name="email" id="email" autocomplete="off" placeholder="Email *" required/>
+       <input type="password" name="password" id="password_register" placeholder="Password *" required/>
        <input type="password1" name="password1" id="password1" placeholder="Confirm Password *" required/>
        <a class="btn" href="#">
          <span></span>
@@ -25,11 +25,11 @@
        </a>
        <p class="message">Already registered? <a href="#">Sign In</a></p>
      </form>
-     <form class="login-form" method="post">
+     <form class="login-form" method="post" action="{% url 'connect' %}">
        {% csrf_token %}
        <h2></i>Login</h2>
-       <input type="text" name="username" id="username" placeholder="Username" required />
-       <input type="password" name="password" id="password" placeholder="Password" required/>
+       <input type="text" name="username" id="username_login" placeholder="Username" required />
+       <input type="password" name="password" id="password_login" placeholder="Password" required/>
         <span></span>
         <span></span>
        {% for message in messages %}
@@ -39,6 +39,7 @@
          <span></span>
          <span></span>
          <span></span>
+        
          <button class="transparent-button" type="submit">Sign in</button>
        </a>
        <p class="message">Not registered? <a href="#">Create an account</a></p>

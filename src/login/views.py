@@ -81,7 +81,8 @@ def connect(request):
         if user is not None and user.is_active:
             login(request, user)
             messages.success(request, "Vous avez été connecté avec succès.")
-            return render(request, "login/index.html", {'username': user.username, 'user': user})
+            # Redirige vers la page principale après la connexion réussie
+            return redirect('http://127.0.0.1:8000/')
         elif user is not None and not user.is_active:
             messages.error(request, "Votre compte n'est pas encore activé. Vérifiez votre e-mail pour le lien de confirmation.")
         else:
@@ -114,3 +115,5 @@ def activate(request, uidb64, token):
     else:
         messages.error(request, "Le lien d'activation est invalide")
         return redirect("login-index")
+    
+

@@ -24,7 +24,6 @@ console.log('ID du tournoi récupéré de l\'URL:', tournamentId);
 function createParticipant() {
     const createParticipantBtn = document.getElementById('createParticipantBtn');
     createParticipantBtn.style.display = 'none'; // Masquer le bouton
-
     const csrftoken = getCookie('csrftoken');
     fetch('/api/get-user/')
         .then(response => {
@@ -69,11 +68,6 @@ function createParticipant() {
             createParticipantBtn.style.display = 'block'; // Réafficher le bouton en cas d'erreur
         });
 }
-
-
-
-
-
 // Ajout de l'écouteur d'événements pour le bouton de création de participant
 document.addEventListener('DOMContentLoaded', function() {
     const createParticipantBtn = document.getElementById('createParticipantBtn');
@@ -82,28 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Fonction pour obtenir le nombre de participants
-function getCounts() {
-    if (!tournamentId) {
-        console.error('Aucun ID de tournoi spécifié dans l\'URL');
-        return;
-    }
 
-    fetch(`http://127.0.0.1:8000/api/count-participants-per-tournoi/?tournoi=${tournamentId}`)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            let resultsDiv = document.getElementById('results');
-            const tournoiNom = Object.keys(data)[0];
-            const participantCount = data[tournoiNom];
-            resultsDiv.innerHTML = `${tournoiNom}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ${participantCount} /8 Participants<br>`;
-            
-            if (participantCount >= 8) {
-                displayParticipants(tournamentId);
-            }
-        })
-        .catch(error => console.error('Error:', error));
-}
 
 // Ajout de l'écouteur d'événements pour l'exécution de getCounts lorsque la page est chargée
 document.addEventListener('DOMContentLoaded', getCounts);
@@ -126,7 +99,6 @@ function displayParticipants(tournamentId) {
             .catch(error => console.error('Error:', error));
     }
 }
-
 // Fonction pour afficher la liste des participants dans le DOM
 function displayParticipantsList(participants) {
     participants.forEach((participant, index) => {
@@ -136,4 +108,25 @@ function displayParticipantsList(participants) {
         }
     });
 }
+// Fonction pour obtenir le nombre de participants
+function getCounts() {
+    if (!tournamentId) {
+        console.error('Aucun ID de tournoi spécifié dans l\'URL');
+        return;
+    }
 
+    fetch(`http://127.0.0.1:8000/api/count-participants-per-tournoi/?tournoi=${tournamentId}`)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            let resultsDiv = document.getElementById('results');
+            const tournoiNom = Object.keys(data)[0];
+            const participantCount = data[tournoiNom];
+            resultsDiv.innerHTML = `${tournoiNom}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ${participantCount} /8 Participants<br>`;
+            
+            if (participantCount >= 8) {
+                displayParticipants(tournamentId);
+            }
+        })
+        .catch(error => console.error('Error:', error));
+}
