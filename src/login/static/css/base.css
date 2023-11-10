@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;1,400&display=swap');
 @import url(https://fonts.googleapis.com/css?family=Poppins:300);
 html {
  height: 100%;
@@ -11,6 +11,7 @@ body{
  background-repeat: no-repeat;
  background-size: cover; 
  background-color: #001f3f; 
+ font-family: 'Lato', sans-serif;
 }
 .login-page {
   width: 400px;
@@ -42,13 +43,10 @@ body{
  border-bottom: 1px solid #fff;
  outline: none;
  background: transparent;
-  
 }
 h2{
  color:white;
 }
-
-
 .form .message {
   margin: 15px 0 0;
   color: #b3b3b3;
@@ -95,6 +93,13 @@ h2{
   height: 2px;
   background: linear-gradient(90deg, transparent, #289bb8);
   animation: btn-anim1 1s linear infinite;
+}
+.transparent-button {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 @keyframes btn-anim1 {
@@ -161,4 +166,13 @@ h2{
   50%,100% {
     bottom: 100%;
   }
+}
+
+.message-error {
+  font-size: 20px; /* Taille de la police */
+  color: #ff5733; /* Couleur du texte du message (par exemple, blanc) */
+  font-weight: bold; /* Gras */
+  padding: 10px; /* Espace intérieur (haut et bas, gauche et droite) du message */
+  margin: 10px 0; /* Marge autour du message */
+  display: block; /* Affichage en ligne pour s'adapter au contenu du message */
 }

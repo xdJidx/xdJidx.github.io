@@ -68,7 +68,7 @@ def register(request):
             email_message.send()
             return redirect("login-index")
         
-    return render(request, "login/register.html")
+    return render(request, "login/index.html")
 
 
 # Se connecter à son compte
@@ -78,18 +78,16 @@ def connect(request):
         password = request.POST["password"]
         user = authenticate(request, username=username, password=password)
 
-        if user is not None and User.objects.filter(username=user.username).exists():
-            if user.is_active:
-                login(request, user)
-                return render(request, "login/index.html", {'username': user.username})
-            else:
-                messages.error(request, "Votre compte n'est pas encore activé. Vérifiez votre e-mail pour le lien de confirmation.")
-                return redirect("login-index")
+        if user is not None and user.is_active:
+            login(request, user)
+            messages.success(request, "Vous avez été connecté avec succès.")
+            return render(request, "login/index.html", {'username': user.username, 'user': user})
+        elif user is not None and not user.is_active:
+            messages.error(request, "Votre compte n'est pas encore activé. Vérifiez votre e-mail pour le lien de confirmation.")
         else:
             messages.error(request, "Identifiants incorrects")
-            return redirect("login-index")
 
-    return render(request, "login/connect.html")
+    return render(request, "login/index.html")
 
 
 # Se déconnecter de son compte
