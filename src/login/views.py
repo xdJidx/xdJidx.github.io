@@ -94,8 +94,7 @@ def connect(request):
 # Se déconnecter de son compte
 def logout_view(request):
     logout(request)
-    messages.success(request, "Vous avez été déconnecté avec succès")
-    return redirect("login-index")
+    return redirect("http://127.0.0.1:8000/")
 
 
 # Activer son compte depuis son mail

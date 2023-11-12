@@ -104,6 +104,11 @@ body {
     color: #1a1a1a;
 }
 
+.boutton-logout a{
+  background-color: transparent;
+  color: white;
+}
+
 
 .date-section {
     text-align: center; /* Centre le texte horizontalement */
@@ -119,14 +124,11 @@ body {
 }
 
 .actualité{
-    position: absolute;
+    position: relative;
     background-color: transparent;
-    left: 30%;
-    top: 38%;
     color: white;
     font-size: 16px; /* Taille de la police */
     line-height: 1.5; /* Espacement entre les lignes */
-    margin-bottom: 20px; /* Marge en bas du paragraphe */
     border: #ffffff;
 }
 
@@ -152,9 +154,30 @@ body {
     line-height: 1.5; /* Espacement entre les lignes */
     margin-bottom: 10px; /* Marge en bas de chaque paragraphe */
     color: white; /* Couleur du texte */
-    text-indent: 20px; /* Retrait de la première ligne en pixels */
   }
+.block-user {
+  margin-right: 80px;
+  color: white;
+  margin-bottom: 23px;
+}
 
+.block-user #username{
+  text-align: center;
+}
+
+#username{
+  color: white;
+}
+
+.logout-button {
+  background-color: transparent;
+  color: white; /* Couleur du texte */
+  text-align: center; /* Alignement du texte */
+  text-decoration: none; /* Pas de soulignement */
+  display: inline-block; /* Type d'affichage */
+  cursor: pointer; /* Style de curseur */
+  font-size: 15px;
+}
 
   .popup {
     display: none;
@@ -175,9 +198,28 @@ body {
   .popup p {
     margin-bottom: 10px;
   }
+
+  .pop-up-login{
+    color: white;
+    display: block;
+    text-align: center;
+    margin-top: 28px;
+    margin-bottom: 41px;
+    font-size: xx-large;
+    position: relative;
+  }
   
+  .cellule-tchat{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  #chat{
+    margin-top: -36px;
+    display: block;
+    position: relative;
+  }
   #closeButton {
-    background-color: white;
     color: black;
     padding: 5px 10px;
     border: none;
@@ -187,6 +229,19 @@ body {
 
   .litle-tiltle {
     text-decoration: underline;
+  }
+
+  .block-user a{
+    color: white;
+    text-decoration: none;
+
+  }
+
+  .block-user button a:hover{
+    color: #1a1a1a;
+  }
+  .block-user button:hover{
+    background-color: white;
   }
 
 

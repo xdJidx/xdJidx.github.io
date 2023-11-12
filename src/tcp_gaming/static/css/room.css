@@ -15,15 +15,14 @@
 
 body {
     position: absolute;
-    right: 52%;/* Ajouté pour descendre le chat de 50px. Ajustez selon vos besoins. */
     margin: 0;
+    margin-left: 100px;
     max-height: 50vh;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 70px;
     font-family: 'Montserrat', sans-serif;
 }
 

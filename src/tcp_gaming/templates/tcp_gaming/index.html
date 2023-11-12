@@ -8,15 +8,7 @@
     <link rel="icon" href="{% static 'css/images/favicon.ico' %}" type="image/x-icon">
 </head>
 
-<body>
-    <div class="actualité">
-        <button class="button-actualité"><p class="title-actualité">Mise a jour prevue le 30/10/2023 :</p></button>
-        <p>- Ajout d'un second modèle bracket dans la catégorie tournoi.</p>
-        <p>- Ajout de la rubrique concours.</p>
-        <p>- Integration du server discord sur le site.</p>
-        <p>- Amélioration du design de la page login.</p>
-      </div>
-      
+<body>      
       <div id="popup" class="popup">
         <p>Détail de la MAJ TCP Gaming version: 1.1
             <p class="litle-tiltle">Nouveau bracket:
@@ -47,8 +39,10 @@
             <h1>TCP GAMING</h1>
         </div>
         {% if user.is_authenticated %}
-        <button type="submit"><a href="{% url 'logout' %}">Se deconnecter</a></button>
-
+        <div class="block-user">
+            <div id="username">{{ user.username }}</div>
+            <button type="submit" class="logout-button"><a href="{% url 'logout' %}">se déconnecter</a></button>
+        </div>
         {% else %}
         <div class="auth">
             <a href="http://127.0.0.1:8000/login/">
@@ -65,9 +59,24 @@
             <li><a href="http://127.0.0.1:8000/photo/" class="rotate-link">Sérénithéière</a></li>
             <li><a href="http://127.0.0.1:8000/autres/" class="rotate-link">Autres activités</a></li>
         </ul>
-    </nav>
+        
+    </nav> 
+            {% if user.is_authenticated %}
+             <div class="pop-up-login">Bienvenue {{ user.username }}</div>
+             {% else %}
+             <div class="pop-up-login"></div>
+            {% endif %}
     <div class="cellule-tchat">
-            <iframe src="http://127.0.0.1:8000/tchat_home/" width="200%" height="800px" frameborder="0" style="border:none;"></iframe>
+        <div></div>
+        <div class="actualité">
+
+            <button class="button-actualité"><p class="title-actualité">Mise a jour prevue le 30/10/2023 :</p></button>
+            <p>- Ajout d'un second modèle bracket dans la catégorie tournoi.</p>
+            <p>- Ajout de la rubrique concours.</p>
+            <p>- Integration du server discord sur le site.</p>
+            <p>- Amélioration du design de la page login.</p>
+          </div>
+            <iframe src="http://127.0.0.1:8000/tchat_home/" id="chat" width="200%" height="800px" frameborder="0" style="border:none;"></iframe>
     </div>
     <script>
         // Sélectionnez le bouton et la fenêtre popup

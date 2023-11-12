@@ -6,15 +6,14 @@
 }
 body {
 border: none;
-margin: 0 ;
+margin-left: 100px ;
 height: 40vh;
 max-height: 40vh;
 padding:0;
-display: flex;
+display: block;
 justify-content: center;
 align-items: center;
 flex-direction: column;
-margin-left: -15%;
 }
 
 .container {
@@ -55,3 +54,7 @@ background-color: white;
 color: black;
 }
 
+
+.title-tchat{
+    color: white;
+}
