@@ -1,178 +1,73 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;1,400&display=swap');
-@import url(https://fonts.googleapis.com/css?family=Poppins:300);
-html {
- height: 100%;
-}
-body{
- margin:0;
- padding:0;
- font-family: sans-serif;
- background-image: url(../css/portail.gif);
- background-repeat: no-repeat;
- background-size: cover; 
- background-color: #001f3f; 
- font-family: 'Lato', sans-serif;
-}
-.login-page {
-  width: 400px;
-  padding: 8% 0 0;
-  margin: auto;
-}
-.form {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 400px;
-  padding: 40px;
-  transform: translate(-50%, -50%);
-  background: rgba(0,0,0,.5);
-  box-sizing: border-box;
-  box-shadow: 0 15px 25px rgba(0,0,0,.6);
-  border-radius: 10px;
-}
-.form input {
- width: 100%;
- padding: 10px 0;
- font-size: 13px;
- color: #fff;
- margin-bottom: 30px;
- border: none;
- border-bottom: 1px solid #fff;
- outline: none;
- background: transparent;
-}
-h2{
- color:white;
-}
-.form .message {
-  margin: 15px 0 0;
-  color: #b3b3b3;
-  font-size: 12px;
-}
-.form .message a {
-  color: #289bb8;
-  text-decoration: none;
-}
-.form .register-form {
-  display: none;
-}
-.btn {
-  position: relative;
-  display: inline-block;
-  padding: 10px 20px;
-  color: #289bb8;
-  font-size: 16px;
-  text-decoration: none;
-  overflow: hidden;
-  transition: .5s;
-  margin-top: 15px;
-  letter-spacing: 2px
-}
-.btn:hover {
-  background: #289bb8;
-  color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 0 5px #289bb8,
-              0 0 25px #289bb8,
-              0 0 50px #289bb8,
-              0 0 100px #289bb8;
-}
 
-.btn span {
-  position: absolute;
-  display: block;
-}
-
-.btn span:nth-child(1) {
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #289bb8);
-  animation: btn-anim1 1s linear infinite;
-}
-.transparent-button {
-  background-color: transparent;
-  border: none;
-  color: #fff;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-@keyframes btn-anim1 {
-  0% {
-    left: -100%;
+body {
+    background-image: url('imageDeFondLogin.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    font-family: 'Lato', sans-serif;
   }
-  50%,100% {
-    left: 100%;
-  }
+
+h2 {
+  font-size: 30px; /* Taille de police */
+  font-weight: bold; /* Gras */
+  text-decoration: underline; /* Souligné */
 }
 
-.btn span:nth-child(2) {
-  top: -100%;
-  right: 0;
-  width: 2px;
-  height: 100%;
-  background: linear-gradient(180deg, transparent, #289bb8);
-  animation: btn-anim2 1s linear infinite;
-  animation-delay: .25s
+h3 {
+  font-size: 25px; /* Taille de police */
+  font-weight: bold; /* Gras */
 }
 
-@keyframes btn-anim2 {
-  0% {
-    top: -100%;
-  }
-  50%,100% {
-    top: 100%;
-  }
+h4 {
+  font-size: 25px; /* Taille de police */
+  font-weight: bold; /* Gras */
 }
 
-.btn span:nth-child(3) {
-  bottom: 0;
-  right: -100%;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(270deg, transparent, #289bb8);
-  animation: btn-anim3 1s linear infinite;
-  animation-delay: .5s
+button {
+  font-size: 18px; /* Taille du texte à l'intérieur des boutons */
+  padding: 10px 20px; /* Espace intérieur (haut et bas, gauche et droite) des boutons */
+  background-color: hsl(60, 20%, 99%); /* Couleur de fond des boutons (par exemple, bleu) */
+  color: #0e0750; /* Couleur du texte à l'intérieur des boutons (par exemple, blanc) */
+  border-radius: 50%; /* Coins arrondis */
 }
 
-@keyframes btn-anim3 {
-  0% {
-    right: -100%;
-  }
-  50%,100% {
-    right: 100%;
-  }
+/* Styliser les boutons */
+button:focus {
+  outline: none; /* Supprimer le contour par défaut du focus */
+  box-shadow: 0 0 5px hsl(34, 100%, 50%); /* Ajouter une ombre lorsque le bouton est en focus (par exemple, une ombre bleue) */
 }
 
-.btn span:nth-child(4) {
-  bottom: -100%;
-  left: 0;
-  width: 2px;
-  height: 100%;
-  background: linear-gradient(360deg, transparent, #289bb8);
-  animation: btn-anim4 1s linear infinite;
-  animation-delay: .75s
+/* Styliser les boutons lorsque visités (après le premier clic) */
+button:visited {
+  color: #0c0c0c; /* Couleur du texte après que le bouton a été cliqué une fois (par exemple, rouge) */
 }
 
-@keyframes btn-anim4 {
-  0% {
-    bottom: -100%;
-  }
-  50%,100% {
-    bottom: 100%;
-  }
+/* Styliser les labels */
+label {
+  display: inline-block; /* Définir les labels comme des éléments en ligne avec une largeur fixe */
+  width: 100px; /* Largeur fixe pour les labels */
+  font-size: 16px; /* Taille de la police des labels */
+  color: #333; /* Couleur du texte des labels */
+  font-weight: bold; /* Gras */
 }
 
-.message-error {
-  font-size: 20px; /* Taille de la police */
-  color: #ff5733; /* Couleur du texte du message (par exemple, blanc) */
+/* Styliser les éléments <input> */
+input {
+  font-size: 16px; /* Taille de la police des éléments <input> */
+  padding: 5px; /* Espace intérieur (haut et bas, gauche et droite) des éléments <input> */
+  border: 1px solid #333; /* Bordure des éléments <input> */
+  border-radius: 5px; /* Coins arrondis */
+}
+
+/* Styliser les messages avec la classe "custom-message" */
+.custom-message {
+  font-size: 25px; /* Taille de la police */
+  background-color: #ff5733; /* Couleur de fond du message (par exemple, rouge) */
+  color: #fff; /* Couleur du texte du message (par exemple, blanc) */
   font-weight: bold; /* Gras */
   padding: 10px; /* Espace intérieur (haut et bas, gauche et droite) du message */
   margin: 10px 0; /* Marge autour du message */
-  display: block; /* Affichage en ligne pour s'adapter au contenu du message */
+  display: inline-block; /* Affichage en ligne pour s'adapter au contenu du message */
 }
