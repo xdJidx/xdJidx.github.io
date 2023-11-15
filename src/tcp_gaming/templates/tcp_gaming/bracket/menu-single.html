@@ -17,7 +17,6 @@
                 <span>{{ tournoi.nom }} - {{ tournoi.date }}</span>
                 <!-- Bouton pour accéder à la page du tournoi -->
                 <button class="join-btn" data-id="{{ tournoi.id }}" data-name="{{ tournoi.nom }}">Accéder au Model Bracket</button>
-                
             </li>
         {% endfor %}
     </ul>
@@ -25,7 +24,6 @@
     <script src="{% static 'js/menu-single.js' %}"></script>
     <script src="{% static 'js/model-bracket.js' %}"></script>
     <button class="back-button2">
-    <div id="results" class="results"></div>
         <a href="http://127.0.0.1:8000/tournoi/">
           <i class="fas fa-arrow-left"></i> Retour
         </a>

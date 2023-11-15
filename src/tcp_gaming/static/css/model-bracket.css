@@ -50,8 +50,8 @@ body {
 }
 
 .demi-final .match {
-    margin-bottom: 70%; /* Espacement supplémentaire en dessous de chaque match, si nécessaire */
-    margin-top: 65%;
+    margin-bottom: 85%;
+    margin-top: 83%;
 }
 
 /* Styles pour les joueurs */
@@ -171,3 +171,140 @@ body {
     text-decoration: unset;
     border: none;
 }
+
+.victoire{
+    position: absolute;
+    left: 72%;
+    bottom: 15%;
+    font-size: 22px;
+    background-color: #FF8E53;
+    border-radius: 20%;
+}
+
+.defaite{
+    position: absolute;
+    left: 79%;
+    bottom: 15%;
+    font-size: 22px;
+    background-color: grey;
+    border-radius: 20%;
+
+}
+
+.title-score{
+    position: absolute;
+    left: 70%;
+    bottom: 20%;
+
+}
+
+.vertical-line1{
+    position: absolute;
+    width: 2px;
+    height: 20%;
+    left: 38%;
+    bottom: 20.5%;
+    background-color: rgba(255, 142, 83, 0.4);
+}
+
+.vertical-line2{
+    position: absolute;
+    width: 2px;
+    height: 20%;
+    left: 38%;
+    bottom: 60%;
+    background-color: rgba(255, 142, 83, 0.4);
+}
+
+.horizontal-line1{
+    position: absolute;
+    width: 2%;
+    height: 2px;
+    left: 36%;
+    bottom: 60%;
+    background-color: rgba(255, 142, 83, 0.4);
+}
+
+.horizontal-line2{
+    position: absolute;
+    width: 2%;
+    height: 2px;
+    left: 36%;
+    bottom: 20.5%;
+    background-color: rgba(255, 142, 83, 0.4);
+}
+
+.horizontal-line3{
+    position: absolute;
+    width: 2%;
+    height: 2px;
+    left: 36%;
+    bottom: 79.75%;
+    background-color: rgba(255, 142, 83, 0.4);
+}
+
+.horizontal-line4{
+    position: absolute;
+    width: 2%;
+    height: 2px;
+    left: 36%;
+    bottom: 40.25%;
+    background-color: rgba(255, 142, 83, 0.4);
+}
+
+.horizontal-line5{
+    position: absolute;
+    width: 4.8%;
+    height: 2px;
+    left: 38%;
+    bottom: 69.75%;
+    background-color: rgba(255, 142, 83, 0.4);
+}
+
+.horizontal-line6{
+    position: absolute;
+    width: 4.8%;
+    height: 2px;
+    left: 38%;
+    bottom: 30.5%;
+    background-color: rgba(255, 142, 83, 0.4);
+}
+
+.vertical-line3{
+    position: absolute;
+    width: 2px;
+    height: 39.5%;
+    left: 60.6%;
+    bottom: 30%;
+    background-color: rgba(255, 142, 83, 0.4);
+}
+
+
+.horizontal-line7{
+    position: absolute;
+    width: 2%;
+    height: 2px;
+    left: 58.7%;
+    bottom: 30%;
+    background-color: rgba(255, 142, 83, 0.4);
+}
+
+.horizontal-line8{
+    position: absolute;
+    width: 2%;
+    height: 2px;
+    left: 58.7%;
+    bottom: 69.2%;
+    background-color: rgba(255, 142, 83, 0.4);
+}
+
+
+.horizontal-line9{
+    position: absolute;
+    width: 3.3%;
+    height: 2px;
+    left: 60.7%;
+    bottom: 50.5%;
+    background-color: rgba(255, 142, 83, 0.4);
+}
+

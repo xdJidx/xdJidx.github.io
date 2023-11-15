@@ -130,3 +130,79 @@ function getCounts() {
         })
         .catch(error => console.error('Error:', error));
 }
+
+
+
+// Fonction pour obtenir l'ID du joueur actuel à partir du localStorage
+function getCurrentPlayerId() {
+    return localStorage.getItem('currentPlayerId');
+}
+
+// Fonction pour récupérer l'index de l'utilisateur actuel parmi les participants
+function getCurrentUserIndex(tournamentId) {
+    const storedParticipants = JSON.parse(localStorage.getItem(`participants_${tournamentId}`));
+    const currentUser = getCurrentPlayerId(); // Récupérez l'ID de l'utilisateur actuel
+
+    if (storedParticipants && currentUser) {
+        for (let i = 0; i < storedParticipants.length; i++) {
+            if (storedParticipants[i].id === currentUser) {
+                return i; // Retourne l'index de l'utilisateur actuel
+            }
+        }
+    }
+    return -1; // Retourne -1 si l'utilisateur actuel n'est pas trouvé
+}
+
+// Utilisation de l'ID du tournoi récupéré de l'URL
+const urlParam = new URLSearchParams(window.location.search);
+const tournamentsId = urlParam.get('tournament_id');
+console.log('ID du tournoi récupéré de l\'URL:', tournamentsId);
+
+// Utilisation de l'ID du tournoi pour obtenir l'index de l'utilisateur actuel
+const userIndex = getCurrentUserIndex(tournamentsId);
+
+if (userIndex !== -1) {
+    console.log(`L'utilisateur actuel se trouve à l'index ${userIndex}`);
+} else {
+    console.log("L'utilisateur actuel n'a pas été trouvé parmi les participants lol.");
+}
+
+
+// Fonction pour afficher l'index du current user
+function showUserIndex() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const tournamentId = urlParams.get('tournament_id');
+
+    // Utilisation de l'ID du tournoi pour obtenir l'index de l'utilisateur actuel
+    const userIndex = getCurrentUserIndex(tournamentId);
+
+    if (userIndex !== -1) {
+        alert(`L'index de l'utilisateur actuel est : ${userIndex}`);
+    } else {
+        alert("L'utilisateur actuel n'a pas été trouvé parmi les participants.");
+    }
+}
+
+// Ajout d'un écouteur d'événements pour le bouton
+const showUserIndexBtn = document.getElementById('showUserIndexBtn');
+if (showUserIndexBtn) {
+    showUserIndexBtn.addEventListener('click', showUserIndex);
+}
+
+
+
+
+function updateScore() {
+    var scoreElement = document.getElementById('score8');
+    scoreElement.textContent = 'V';
+    
+    // Change la couleur du texte
+    scoreElement.style.color = '#FF8E53';
+  }
+
+function scoredefeat() {
+    var scoreElement = document.getElementById('score8');
+    scoreElement.textContent = 'D';
+    scoreElement.style.color = 'black';
+}
+

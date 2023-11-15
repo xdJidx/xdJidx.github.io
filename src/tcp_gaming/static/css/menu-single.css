@@ -47,6 +47,8 @@ body {
     width: 25%;
     box-sizing: border-box;
     border-radius: 5px;
+    margin-left: 100px;
+    margin-right: 100px;
 }
 .tournois li:hover {
     background: rgba(0, 0, 0, 0.2);
