@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TCP Gaming</title>
+</head>
+
+<body>
+    <style>
+        /* Reset des marges et paddings */
+        body, h1, h2, h3, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Style de base pour le body */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        /* Style pour la section top */
+        .top {
+            text-align: center;
+            padding: 50px 0;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Style pour le titre h1 */
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            color: #444;
+        }
+
+        /* Style pour le titre h2 */
+        h2 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        /* Style pour le bouton */
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        /* Style pour le lien dans le bouton */
+        button a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Hover sur le bouton */
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <div class="top">
+        <div class="menu-icon">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="hour">
+            <h3> {{ date|date:"H\hi" }} </h3>
+        </div>
+        <div class="title">
+            <h1>TCP GAMING</h1>
+        </div>
+        <h2>BIENVENUE</h2>
+    </div>
+        
+    <button>
+        <a href="/src/tcp_gaming/templates/tcp_gaming/index.html">
+                Se rendre à l'Accueil
+    </button>
+</body>
+</html>
