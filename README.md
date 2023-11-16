@@ -5,10 +5,9 @@
 <br>
 
 ## Introduction
-Ce projet propose un site web permettant la création de tournoi, de concours et d'autres features.
-Vous pouvez retrouver les liens vers différentes sources ci dessous
+This project offers a website allowing the creation of tournaments, contests, and other features. You can find links to different sources below:
 
-- Deployed site : https://tcp-gaming.me/
+- DDeployed site : https://tcp-gaming.me/
 - Blog article : Link
 <br>
 
@@ -24,39 +23,38 @@ GitHub -> https://github.com/grem62
 <br>
 
 ## Installation
-1. Clonez le dépôt Git ou téléchargez les fichiers du projet
+1. Clone the Git repository or download the project files.
 ```
 git clone https://github.com/xdJidx/xdJidx.github.io.git
 ```
-2. Rendez vous dans le dossier et activez l'environnement virtuel 
-- Sur Windows :
+2. Go to the directory and activate the virtual environment.
+- On Windows:
 ```
 cd xdJidx.github.io
 myenv\Scripts\activate
 ```
-- Sur macOS / Linux :
+- On macOS / Linux:
 ```
 source myenv/bin/activate
 ```
 <br>
 
 ## Usage
-Lancez le serveur de développement
+Start the development server.
 ```
 python manage.py runserver
 ```
-Rendez-vous sur http://127.0.0.1:8000/ dans votre navigateur pour voir le projet Django en cours d'exécution localement.
+Go to http://127.0.0.1:8000/ in your browser to see the Django project running locally.
 <br>
 
 ## Contributing
-You can send message for the authors if you want colaborat or signaler un probleme
-<br>
+You can send a message to the authors if you want to collaborate or report an issue.<br>
 
 ## Related projects
-- [Django REST framework](https://www.django-rest-framework.org/): Un puissant framework pour créer des APIs web avec Django.
-- [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/): Une application Django qui aide à gérer les formulaires de manière élégante.
-- [django-allauth](https://github.com/pennersr/django-allauth): Un ensemble complet d'authentification pour Django, avec prise en charge de l'inscription sociale, entre autres fonctionnalités.
+- [Django REST framework](https://www.django-rest-framework.org/):  A powerful framework for creating web APIs with Django.
+- [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/): A Django application that helps manage forms elegantly.
+- [django-allauth](https://github.com/pennersr/django-allauth): A comprehensive authentication set for Django, including social sign-ups, among other features.
 <br>
 
 ## Licensing
-Ce projet est distribué sous la licence [MIT](https://opensource.org/licenses/MIT). Consultez le fichier [LICENSE](LICENSE) pour plus de détails.
+This project is distributed under the [MIT](https://opensource.org/licenses/MIT). license. Refer to the [LICENSE](LICENSE) file for more details.
